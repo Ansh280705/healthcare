@@ -8,9 +8,10 @@ import { revalidatePath } from "next/cache";
  * Sets the user's role and related information
  */
 export async function setUserRole(formData) {
-  const { userId } =  auth();
+  const { userId } = await auth();
 
   if (!userId) {
+    console.warn("Onboarding: unauthorized access to setUserRole");
     throw new Error("Unauthorized");
   }
 
@@ -49,17 +50,22 @@ export async function setUserRole(formData) {
       const phone = formData.get("phone");
       const qualificationsRaw = formData.get("qualifications");
       const qualifications = qualificationsRaw
-  ? JSON.parse(qualificationsRaw )
-  : [];
+        ? JSON.parse(qualificationsRaw)
+        : [];
 
       const experience = parseInt(formData.get("experience"), 10);
       const credentialUrl = formData.get("credentialUrl");
       const description = formData.get("description");
 
-      
-
       // Validate inputs
-      if (!specialty ||!phone ||!qualifications || !experience || !credentialUrl || !description) {
+      if (
+        !specialty ||
+        !phone ||
+        !qualifications ||
+        !experience ||
+        !credentialUrl ||
+        !description
+      ) {
         throw new Error("All fields are required");
       }
 
@@ -71,7 +77,7 @@ export async function setUserRole(formData) {
           role: "DOCTOR",
           specialty,
           phone,
-         qualifications,
+          qualifications,
 
           experience,
           credentialUrl,
@@ -93,7 +99,7 @@ export async function setUserRole(formData) {
  * Gets the current user's complete profile information
  */
 export async function getCurrentUser() {
-  const { userId } =  auth();
+  const { userId } = await auth();
 
   if (!userId) {
     return null;
