@@ -115,34 +115,154 @@
 
 // "use server";
 
+// import { db } from "@/lib/prisma";
+// import { auth } from "@clerk/nextjs/server";
+// import { revalidatePath } from "next/cache";
+
+// export async function setUserRole(formData) {
+//   // ✅ auth() must be awaited
+//   const { userId } = await auth();
+
+//   if (!userId) {
+//     throw new Error("Unauthorized");
+//   }
+
+//   const role = formData.get("role")?.toString();
+
+//   if (!role || !["PATIENT", "DOCTOR"].includes(role)) {
+//     throw new Error("Invalid role selected");
+//   }
+
+//   try {
+//     const user = await db.user.findUnique({
+//       where: { clerkUserId: userId },
+//     });
+
+//     if (!user) {
+//       throw new Error("User not found in database");
+//     }
+
+//     // ---------------- PATIENT ----------------
+//     if (role === "PATIENT") {
+//       await db.user.update({
+//         where: { clerkUserId: userId },
+//         data: { role: "PATIENT" },
+//       });
+
+//       revalidatePath("/");
+//       return { success: true, redirect: "/doctors" };
+//     }
+
+//     // ---------------- DOCTOR ----------------
+//     const specialty = formData.get("specialty")?.toString();
+//     const phone = formData.get("phone")?.toString();
+//     const credentialUrl = formData.get("credentialUrl")?.toString();
+//     const description = formData.get("description")?.toString();
+
+//     let qualifications= [];
+//     const rawQualifications = formData.get("qualifications");
+
+//     if (rawQualifications) {
+//       try {
+//         qualifications = JSON.parse(rawQualifications.toString());
+//       } catch {
+//         throw new Error("Invalid qualifications format");
+//       }
+//     }
+
+//     const experience = Number(formData.get("experience"));
+
+//     if (
+//       !specialty ||
+//       !phone ||
+//       !credentialUrl ||
+//       !description ||
+//       isNaN(experience)
+//     ) {
+//       throw new Error("All fields are required");
+//     }
+
+//     await db.user.update({
+//       where: { clerkUserId: userId },
+//       data: {
+//         role: "DOCTOR",
+//         specialty,
+//         phone,
+//         qualifications,
+//         experience,
+//         credentialUrl,
+//         description,
+//         verificationStatus: "PENDING",
+//       },
+//     });
+
+//     revalidatePath("/");
+//     return { success: true, redirect: "/doctor/verification" };
+//   } catch (error) {
+//     console.error("❌ Onboarding Error:", error);
+//     throw new Error("Failed to complete onboarding");
+//   }
+// }export async function getCurrentUser() {
+//   const { userId } = auth(); // NOT await
+
+//   if (!userId) return null;
+
+//   try {
+//     const user = await db.user.findUnique({
+//       where: {
+//         clerkUserId: userId,
+//       },
+//     });
+//     return user;
+//   } catch (error) {
+//     console.error("Failed to get user information:", error);
+//     return null;
+//   }
+// }
+"use server";
+
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
-export async function setUserRole(formData) {
-  // ✅ auth() must be awaited
-  const { userId } = await auth();
+/**
+ * Ensure DB user exists (Google + Email safe)
+ */
+async function getOrCreateDbUser(clerkUserId) {
+  let user = await db.user.findUnique({
+    where: { clerkUserId },
+  });
 
-  if (!userId) {
-    throw new Error("Unauthorized");
+  if (!user) {
+    user = await db.user.create({
+      data: {
+        clerkUserId,
+        role: "PATIENT",
+      },
+    });
   }
 
-  const role = formData.get("role")?.toString();
+  return user;
+}
+
+export async function setUserRole(formData) {
+  const { userId } = auth(); // ✅ NO await
+
+  // 🔐 Handle unauth safely
+  if (!userId) {
+    return { success: false, redirect: "/sign-in" };
+  }
+
+  const role = formData.get("role");
 
   if (!role || !["PATIENT", "DOCTOR"].includes(role)) {
-    throw new Error("Invalid role selected");
+    return { success: false, message: "Invalid role selected" };
   }
 
   try {
-    const user = await db.user.findUnique({
-      where: { clerkUserId: userId },
-    });
+    await getOrCreateDbUser(userId);
 
-    if (!user) {
-      throw new Error("User not found in database");
-    }
-
-    // ---------------- PATIENT ----------------
+    /* ============ PATIENT ============ */
     if (role === "PATIENT") {
       await db.user.update({
         where: { clerkUserId: userId },
@@ -153,24 +273,23 @@ export async function setUserRole(formData) {
       return { success: true, redirect: "/doctors" };
     }
 
-    // ---------------- DOCTOR ----------------
-    const specialty = formData.get("specialty")?.toString();
-    const phone = formData.get("phone")?.toString();
-    const credentialUrl = formData.get("credentialUrl")?.toString();
-    const description = formData.get("description")?.toString();
+    /* ============ DOCTOR ============ */
+    const specialty = formData.get("specialty");
+    const phone = formData.get("phone");
+    const credentialUrl = formData.get("credentialUrl");
+    const description = formData.get("description");
+    const experience = Number(formData.get("experience"));
 
-    let qualifications= [];
+    let qualifications = [];
     const rawQualifications = formData.get("qualifications");
 
     if (rawQualifications) {
       try {
-        qualifications = JSON.parse(rawQualifications.toString());
+        qualifications = JSON.parse(rawQualifications);
       } catch {
-        throw new Error("Invalid qualifications format");
+        return { success: false, message: "Invalid qualifications format" };
       }
     }
-
-    const experience = Number(formData.get("experience"));
 
     if (
       !specialty ||
@@ -179,7 +298,7 @@ export async function setUserRole(formData) {
       !description ||
       isNaN(experience)
     ) {
-      throw new Error("All fields are required");
+      return { success: false, message: "All fields are required" };
     }
 
     await db.user.update({
@@ -198,24 +317,8 @@ export async function setUserRole(formData) {
 
     revalidatePath("/");
     return { success: true, redirect: "/doctor/verification" };
-  } catch (error) {
-    console.error("❌ Onboarding Error:", error);
-    throw new Error("Failed to complete onboarding");
-  }
-}export async function getCurrentUser() {
-  const { userId } = auth(); // NOT await
-
-  if (!userId) return null;
-
-  try {
-    const user = await db.user.findUnique({
-      where: {
-        clerkUserId: userId,
-      },
-    });
-    return user;
-  } catch (error) {
-    console.error("Failed to get user information:", error);
-    return null;
+  } catch (err) {
+    console.error("Onboarding error:", err);
+    return { success: false, message: "Onboarding failed" };
   }
 }
