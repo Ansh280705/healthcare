@@ -210,8 +210,8 @@ const patientGender = formData.get("patientGender");
       throw new Error("Doctor not found or not verified");
     }
 
-    // Check if the patient has enough credits (2 credits per appointment)
-    if (patient.credits < 2) {
+    // Check if the patient has enough credits (1 credit per appointment)
+    if (patient.credits < 1) {
       throw new Error("Insufficient credits to book an appointment");
     }
 

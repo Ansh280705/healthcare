@@ -12,7 +12,7 @@ const PLAN_CREDITS = {
   premium: 24, // Premium plan: 24 credits per month
 };
 
-// Each appointment costs 2 credits
+// Each appointment costs 1 credit
 const APPOINTMENT_CREDIT_COST = 1;
 
 /**

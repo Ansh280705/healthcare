@@ -64,7 +64,7 @@ const AppointmentForm = ({ doctorId, slot, onBack, onComplete }) => {
         <div className="flex items-center">
           <CreditCard className="h-5 w-5 text-emerald-400 mr-2" />
           <span className="text-muted-foreground">
-            Cost: <span className="text-black font-medium">2 credits</span>
+            Cost: <span className="text-black font-medium">1 credits</span>
           </span>
         </div>
       </div>
