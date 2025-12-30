@@ -17,7 +17,20 @@ const useFetch = (cb) => {
       setError(null);
     } catch (error) {
       setError(error);
-      toast.error(error.message);
+      // If server says unauthenticated, redirect to sign-in preserving path
+      try {
+        const isUnauthorized = error?.message === "Unauthorized" || error?.name === "UnauthorizedError";
+        if (isUnauthorized && typeof window !== "undefined") {
+          toast.error("Please sign in to continue");
+          const redirectTo = encodeURIComponent(window.location.pathname + window.location.search);
+          setTimeout(() => (window.location.href = `/sign-in?redirectTo=${redirectTo}`), 300);
+          return;
+        }
+      } catch (e) {
+        // ignore
+      }
+
+      toast.error(error.message || "An error occurred");
     } finally {
       setLoading(false);
     }

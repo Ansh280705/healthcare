@@ -59,6 +59,13 @@ export default function OnboardingPage() {
     try {
       setLoading(true);
       const res = await setUserRole(formData);
+
+      // If the server indicates the user is unauthenticated, redirect to sign-in
+      if (res?.success === false && res?.redirect) {
+        router.replace(res.redirect);
+        return;
+      }
+
       setResult(res);
     } catch (err) {
       console.error("Error submitting role:", err);
