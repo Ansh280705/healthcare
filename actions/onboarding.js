@@ -1,114 +1,205 @@
+// "use server";
+
+// import { db } from "@/lib/prisma";
+// import { auth } from "@clerk/nextjs/server";
+// import { revalidatePath } from "next/cache";
+
+// /**
+//  * Sets the user's role and related information
+//  */
+// export async function setUserRole(formData) {
+//   const { userId } = await auth();
+
+//   if (!userId) {
+//     throw new Error("Unauthorized");
+//   }
+
+//   // Find user in our database
+//   const user = await db.user.findUnique({
+//     where: { clerkUserId: userId },
+//   });
+
+//   if (!user) throw new Error("User not found in database");
+
+//   const role = formData.get("role");
+
+//   if (!role || !["PATIENT", "DOCTOR"].includes(role)) {
+//     throw new Error("Invalid role selection");
+//   }
+
+//   try {
+//     // For patient role - simple update
+//     if (role === "PATIENT") {
+//       await db.user.update({
+//         where: {
+//           clerkUserId: userId,
+//         },
+//         data: {
+//           role: "PATIENT",
+//         },
+//       });
+
+//       revalidatePath("/");
+//       return { success: true, redirect: "/doctors" };
+//     }
+
+//     // For doctor role - need additional information
+//     if (role === "DOCTOR") {
+//       const specialty = formData.get("specialty");
+//       const phone = formData.get("phone");
+//       const qualificationsRaw = formData.get("qualifications");
+//       const qualifications = qualificationsRaw
+//   ? JSON.parse(qualificationsRaw )
+//   : [];
+
+//       const experience = parseInt(formData.get("experience"), 10);
+//       const credentialUrl = formData.get("credentialUrl");
+//       const description = formData.get("description");
+
+      
+
+//       // Validate inputs
+//       if (!specialty ||!phone ||!qualifications || !experience || !credentialUrl || !description) {
+//         throw new Error("All fields are required");
+//       }
+
+//       await db.user.update({
+//         where: {
+//           clerkUserId: userId,
+//         },
+//         data: {
+//           role: "DOCTOR",
+//           specialty,
+//           phone,
+//          qualifications,
+
+//           experience,
+//           credentialUrl,
+//           description,
+//           verificationStatus: "PENDING",
+//         },
+//       });
+
+//       revalidatePath("/");
+//       return { success: true, redirect: "/doctor/verification" };
+//     }
+//   } catch (error) {
+//     console.error("Failed to set user role:", error);
+//     throw new Error(`Failed to update user profile: ${error.message}`);
+//   }
+// }
+
+// /**
+//  * Gets the current user's complete profile information
+//  */
+// export async function getCurrentUser() {
+//   const { userId } = await auth();
+
+//   if (!userId) {
+//     return null;
+//   }
+
+//   try {
+//     const user = await db.user.findUnique({
+//       where: {
+//         clerkUserId: userId,
+//       },
+//     });
+
+//     return user;
+//   } catch (error) {
+//     console.error("Failed to get user information:", error);
+//     return null;
+//   }
+// }
+
 "use server";
 
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
-/**
- * Sets the user's role and related information
- */
 export async function setUserRole(formData) {
-  const { userId } = await auth();
+  // ✅ auth() is NOT async
+  const { userId } = auth();
 
   if (!userId) {
     throw new Error("Unauthorized");
   }
 
-  // Find user in our database
-  const user = await db.user.findUnique({
-    where: { clerkUserId: userId },
-  });
-
-  if (!user) throw new Error("User not found in database");
-
-  const role = formData.get("role");
+  const role = formData.get("role")?.toString();
 
   if (!role || !["PATIENT", "DOCTOR"].includes(role)) {
-    throw new Error("Invalid role selection");
+    throw new Error("Invalid role selected");
   }
 
   try {
-    // For patient role - simple update
+    const user = await db.user.findUnique({
+      where: { clerkUserId: userId },
+    });
+
+    if (!user) {
+      throw new Error("User not found in database");
+    }
+
+    // ---------------- PATIENT ----------------
     if (role === "PATIENT") {
       await db.user.update({
-        where: {
-          clerkUserId: userId,
-        },
-        data: {
-          role: "PATIENT",
-        },
+        where: { clerkUserId: userId },
+        data: { role: "PATIENT" },
       });
 
       revalidatePath("/");
       return { success: true, redirect: "/doctors" };
     }
 
-    // For doctor role - need additional information
-    if (role === "DOCTOR") {
-      const specialty = formData.get("specialty");
-      const phone = formData.get("phone");
-      const qualificationsRaw = formData.get("qualifications");
-      const qualifications = qualificationsRaw
-  ? JSON.parse(qualificationsRaw )
-  : [];
+    // ---------------- DOCTOR ----------------
+    const specialty = formData.get("specialty")?.toString();
+    const phone = formData.get("phone")?.toString();
+    const credentialUrl = formData.get("credentialUrl")?.toString();
+    const description = formData.get("description")?.toString();
 
-      const experience = parseInt(formData.get("experience"), 10);
-      const credentialUrl = formData.get("credentialUrl");
-      const description = formData.get("description");
+    let qualifications = [];
+    const rawQualifications = formData.get("qualifications");
 
-      
-
-      // Validate inputs
-      if (!specialty ||!phone ||!qualifications || !experience || !credentialUrl || !description) {
-        throw new Error("All fields are required");
+    if (rawQualifications) {
+      try {
+        qualifications = JSON.parse(rawQualifications.toString());
+      } catch {
+        throw new Error("Invalid qualifications format");
       }
-
-      await db.user.update({
-        where: {
-          clerkUserId: userId,
-        },
-        data: {
-          role: "DOCTOR",
-          specialty,
-          phone,
-         qualifications,
-
-          experience,
-          credentialUrl,
-          description,
-          verificationStatus: "PENDING",
-        },
-      });
-
-      revalidatePath("/");
-      return { success: true, redirect: "/doctor/verification" };
     }
-  } catch (error) {
-    console.error("Failed to set user role:", error);
-    throw new Error(`Failed to update user profile: ${error.message}`);
-  }
-}
 
-/**
- * Gets the current user's complete profile information
- */
-export async function getCurrentUser() {
-  const { userId } = await auth();
+    const experience = Number(formData.get("experience"));
 
-  if (!userId) {
-    return null;
-  }
+    if (
+      !specialty ||
+      !phone ||
+      !credentialUrl ||
+      !description ||
+      isNaN(experience)
+    ) {
+      throw new Error("All fields are required");
+    }
 
-  try {
-    const user = await db.user.findUnique({
-      where: {
-        clerkUserId: userId,
+    await db.user.update({
+      where: { clerkUserId: userId },
+      data: {
+        role: "DOCTOR",
+        specialty,
+        phone,
+        qualifications,
+        experience,
+        credentialUrl,
+        description,
+        verificationStatus: "PENDING",
       },
     });
 
-    return user;
+    revalidatePath("/");
+    return { success: true, redirect: "/doctor/verification" };
   } catch (error) {
-    console.error("Failed to get user information:", error);
-    return null;
+    console.error("❌ Onboarding Error:", error);
+    throw new Error("Failed to complete onboarding");
   }
 }
