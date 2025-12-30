@@ -87,7 +87,7 @@ const MobileHeader = ({ user }) => {
         </SignedIn>
 
         <SignedOut>
-          <SignInButton>
+          <SignInButton forceRedirectUrl="/onboarding" fallbackRedirectUrl="/onboarding">
             <Button size="icon" variant="ghost">
               <UserIcon />
             </Button>
@@ -206,7 +206,7 @@ const DesktopHeader = ({ user, credits }) => (
 
       {/* Auth */}
       <SignedOut>
-        <SignInButton>
+        <SignInButton forceRedirectUrl="/onboarding" fallbackRedirectUrl="/onboarding">
           <Button
             size="sm"
             className="bg-background text-foreground border hover:border-client hover:bg-background"
