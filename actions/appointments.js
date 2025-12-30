@@ -78,10 +78,15 @@ export async function getAvailableTimeSlots(doctorId) {
       },
     });
 
-    if (!availability) {
-      throw new Error("No availability set by doctor");
-    }
-
+    // if (!availability) {
+    //   throw new Error("No availability set by doctor");
+    // }
+if (!availability) {
+  return {
+    days: [],
+    message: "Doctor has not set availability yet",
+  };
+}
     // Get the next 4 days
     const now = new Date();
     const days = [now, addDays(now, 1), addDays(now, 2), addDays(now, 3)];
