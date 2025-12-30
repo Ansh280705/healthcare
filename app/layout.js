@@ -20,7 +20,7 @@ const inter = Poppins({
 
 export const metadata = {
   title: "DoctorDesk",
-  description: "create by Abhi_Anshu_Ansh",
+  description: "DoctorDesk is a powerful online healthcare platform in India designed for seamless online doctor appointment booking, online video consultations, digital prescriptions, and secure online patient management. DoctorDesk helps patients connect with verified doctors, manage medical records, and access online healthcare services anytime, anywhere",
 };
 
 export default async function RootLayout({ children }) {
