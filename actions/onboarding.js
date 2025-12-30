@@ -228,7 +228,7 @@
 "use server";
 
 import { db } from "@/lib/prisma";
-import { auth, clerkClient } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 /**
@@ -327,9 +327,7 @@ export async function setUserRole(formData) {
         verificationStatus: "PENDING",
       },
     });
-    await clerkClient.users.updateUser(userId, {
-  publicMetadata: { role: "PATIENT" },
-});
+    
 
     revalidatePath("/");
     return { success: true, redirect: "/doctor/verification" };
