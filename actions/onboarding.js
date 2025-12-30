@@ -322,3 +322,20 @@ export async function setUserRole(formData) {
     return { success: false, message: "Onboarding failed" };
   }
 }
+export async function getCurrentUser() {
+  const { userId } = auth(); // NOT await
+
+  if (!userId) return null;
+
+  try {
+    const user = await db.user.findUnique({
+      where: {
+        clerkUserId: userId,
+      },
+    });
+    return user;
+  } catch (error) {
+    console.error("Failed to get user information:", error);
+    return null;
+  }
+}
