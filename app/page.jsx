@@ -39,7 +39,7 @@ export default function Home() {
               className="bg-client border-2 border-[#4b736f] 
               px-4 py-1 text-sm sm:text-base text-white mb-1 w-max mx-auto md:mx-0"
             >
-              Consult india’s top doctors
+         Healthcare Made Simple
             </Badge>
 
             <h1
