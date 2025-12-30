@@ -113,15 +113,15 @@
 //   }
 // }
 
-"use server";
+// "use server";
 
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 export async function setUserRole(formData) {
-  // ✅ auth() is NOT async
-  const { userId } = auth();
+  // ✅ auth() must be awaited
+  const { userId } = await auth();
 
   if (!userId) {
     throw new Error("Unauthorized");
@@ -159,7 +159,7 @@ export async function setUserRole(formData) {
     const credentialUrl = formData.get("credentialUrl")?.toString();
     const description = formData.get("description")?.toString();
 
-    let qualifications = [];
+    let qualifications= [];
     const rawQualifications = formData.get("qualifications");
 
     if (rawQualifications) {
@@ -201,25 +201,5 @@ export async function setUserRole(formData) {
   } catch (error) {
     console.error("❌ Onboarding Error:", error);
     throw new Error("Failed to complete onboarding");
-  }
-}
-export async function getCurrentUser() {
-  const { userId } = await auth();
-
-  if (!userId) {
-    return null;
-  }
-
-  try {
-    const user = await db.user.findUnique({
-      where: {
-        clerkUserId: userId,
-      },
-    });
-
-    return user;
-  } catch (error) {
-    console.error("Failed to get user information:", error);
-    return null;
   }
 }
