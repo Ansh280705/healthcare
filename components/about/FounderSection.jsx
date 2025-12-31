@@ -16,7 +16,7 @@ export default function FounderSection() {
     ankit: {
       name: "Dr. Ankit Chourasiya",
       role: "Founder and CEO, DoctorDesk",
-      details: "BDS · Dentist · Medical Registration Verified",
+      details: "Founder & Product Lead",
       phone: "+91 81094 24356",
       phoneRaw: "8109424356",
       insta: "https://www.instagram.com/dr.ankit_chourasiya_/",
@@ -49,7 +49,7 @@ export default function FounderSection() {
               </h3>
 
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                India doesn’t suffer from a shortage of doctors; it suffers from a shortage of access. Rural reach, affordability, fragmented care, and time constraints are the real problems. Doctor Desk is my vision to bridge this gap—connecting patients with verified doctors, clinics, labs, and follow-ups on one trusted platform, at a cost every Indian can afford.
+                India doesn’t suffer from a shortage of experts; it suffers from a shortage of access. Rural reach, affordability, fragmented workflow, and time constraints are the real problems. Doctor Desk is my vision to bridge this gap—connecting users with verified professionals and scheduling tools on one trusted platform, at a cost every Indian can afford.
               </p>
 
               <div className="p-6 bg-white rounded-2xl shadow-sm border-l-4 border-client">
@@ -101,7 +101,7 @@ export default function FounderSection() {
               </h3>
 
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                With deep expertise in technology and system architecture, Er. Pankaj Chourasiya is the backbone of Doctor Desk’s digital framework. He leads platform development, workflow automation, and system scalability—ensuring Doctor Desk remains robust, user-friendly, and future-ready for India’s growing healthcare needs.
+                With deep expertise in technology and system architecture, Er. Pankaj Chourasiya is the backbone of Doctor Desk’s digital framework. He leads platform development, workflow automation, and system scalability—ensuring Doctor Desk remains robust, user-friendly, and future-ready for India’s growing digital needs.
               </p>
 
               <div className="p-6 bg-white rounded-2xl shadow-sm border-l-4 border-[#6ba49f]">

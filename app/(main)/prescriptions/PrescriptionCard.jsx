@@ -21,14 +21,14 @@ export default function PrescriptionCard({ prescription }) {
               Doctor<span className="text-client">Desk</span>
             </h2>
             <p className="text-sm text-gray-500">
-              Trusted Online Consultation Platform
+              Trusted Professional Platform
             </p>
           </div>
         </div>
 
         <div className="text-sm text-left md:text-right">
           <p className="font-medium">
-            <strong>Doctor Name: </strong>Dr.{doctor?.name} <br />{doctor?.specialty} <br />{doctor?.qualifications} 
+            <strong>Expert Name: </strong>Dr.{doctor?.name} <br />{doctor?.specialty} <br />{doctor?.qualifications} 
           </p>
           <p className="font-medium">
             <strong>Date: </strong>
@@ -43,12 +43,12 @@ export default function PrescriptionCard({ prescription }) {
           <div className="flex items-center justify-center w-10 h-10 rounded-full bg-client/20">
             <User className="text-client w-5 h-5" />
           </div>
-          <h3 className="text-base font-semibold text-gray-800">Patient Details</h3>
+          <h3 className="text-base font-semibold text-gray-800">Client Details</h3>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 text-sm">
           <div>
-            <p className="text-black font-bold">Name</p>
+            <p className="text-black font-bold">Client Name</p>
             <p className="font-medium text-gray-800">{appointment.patient?.name}</p>
           </div>
           <div>
@@ -72,7 +72,7 @@ export default function PrescriptionCard({ prescription }) {
           <div className="flex items-center justify-center w-10 h-10 rounded-full bg-client/20">
             <Stethoscope className="text-client w-5 h-5" />
           </div>
-          <h3 className="text-base font-semibold text-gray-800">Doctor Details</h3>
+          <h3 className="text-base font-semibold text-gray-800">Professional Details</h3>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
@@ -91,16 +91,16 @@ export default function PrescriptionCard({ prescription }) {
       <div className="space-y-4 w-full max-w-full overflow-hidden">
         {medicalHistory && (
           <div className="border border-client/40 rounded-lg p-4 bg-gray-50 break-words w-full">
-            <strong className="block mb-2">Medical History</strong>
+            <strong className="block mb-2">Context / History</strong>
             <p className="text-gray-800 whitespace-pre-wrap">{medicalHistory}</p>
           </div>
         )}
 
-        {["Diagnosis", "Medicines", "Instructions"].map((title, index) => {
+        {["Summary", "Recommendations", "Next Steps"].map((title, index) => {
           const value =
-            title === "Diagnosis"
+            title === "Summary"
               ? diagnosis
-              : title === "Medicines"
+              : title === "Recommendations"
               ? medicines
               : instructions;
           if (!value) return null;
@@ -122,19 +122,19 @@ export default function PrescriptionCard({ prescription }) {
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
           <p className="font-medium">Validity:</p>
           <p className="text-gray-700 text-xs">
-            This e-prescription is issued following Telemedicine Practice Guidelines (India, 2020). It is valid as an electronic prescription and should be retained by the patient. (If dispensing directly to pharmacy, patient consent required.)
+            This record is issued following Platform Guidelines. It is valid as an electronic record and should be retained by the client.
           </p>
           <p className="font-medium mt-2">Consent (Telemedicine):</p>
           <p className="text-gray-700 text-xs">
-            It is valid as an electronic prescription and should be retained by the patient. (If dispensing directly to pharmacy, patient consent required.)
+            It is valid as an electronic record and should be retained by the client.
           </p>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
           <p className="font-medium">Notes:</p>
           <ul className="list-disc list-inside text-gray-700 text-xs space-y-1 mt-1">
-            <li>For minors, consultation must be with an identified adult/guardian (age verification done).</li>
-            <li>Prohibited/schedule drugs are not prescribed via teleconsultation as per guidelines.</li>
+            <li>For minors, session must be with an identified adult/guardian.</li>
+            <li>Medical prescriptions are not provided via this platform.</li>
             <li>For emergencies, contact local emergency services / nearest hospital.</li>
           </ul>
         </div>

@@ -44,7 +44,7 @@ export default function Footer() {
           {/* CONTENT */}
           <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
             <h2 className="text-2xl md:text-3xl font-semibold leading-snug">
-              Consult trusted doctors online using a simple credit-based system.
+            Consult trusted experts online using a simple credit-based system.
             </h2>
 
             <div className="flex items-center gap-4 md:justify-end">
@@ -78,7 +78,7 @@ export default function Footer() {
               Doctor<span className="text-client">Desk</span>
             </h3>
             <p className="mt-3 max-w-sm">
-              Online doctor consultations made simple, secure, and accessible
+              Online session scheduling made simple, secure, and accessible
               for everyone.
             </p>
           </div>
@@ -195,13 +195,23 @@ export default function Footer() {
           <span>🟢 All systems operational</span>
           <span>© 2025 DoctorDesk</span>
           <div className="flex gap-4">
-            <Link href="#" className="hover:text-client">
+            <Link href="/privacy-policy" className="hover:text-client">
               Privacy
             </Link>
-            <Link href="#" className="hover:text-client">
+            <Link href="/terms-and-conditions" className="hover:text-client">
               Terms
             </Link>
+            <Link href="/refund-policy" className="hover:text-client">
+              Refunds
+            </Link>
           </div>
+        </div>
+        <div className="container mx-auto px-6 lg:px-20 py-4 text-xs text-muted-foreground text-center border-t border-border/60 flex flex-col items-center gap-2">
+            <p><strong>Company Name:</strong> DoctorDesk | <strong>Business Type:</strong> SaaS / IT Services | <strong>Category:</strong> Appointment Booking & Practice Management Software</p>
+            <p><strong>Support:</strong> support@doctordesk.co.in</p>
+            <p className="mt-2">DoctorDesk is a technology platform and does not provide medical consultation,
+            diagnosis, treatment, or prescriptions. All services are provided independently
+            by professionals using the platform.</p>
         </div>
       </div>
       {modal && (

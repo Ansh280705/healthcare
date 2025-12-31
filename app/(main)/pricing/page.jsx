@@ -25,17 +25,16 @@ export default async function PricingPage() {
           variant="outline"
           className="bg-client/10 border-client/80 px-4 py-1 text-client text-sm font-medium mb-4"
         >
-          Affordable Healthcare
+          Affordable Management
         </Badge>
 
         <h1 className="text-4xl md:text-5xl font-bold gradient-title mb-4">
           Simple, Transparent Pricing
         </h1>
 
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Choose the perfect consultation package that fits your healthcare
-          needs with no hidden fees or long-term commitments
-        </p>
+          All payments made on DoctorDesk are for software platform usage, subscription
+          access, and digital tools provided by the platform. DoctorDesk does not collect
+          fees for medical or professional advice.
       </div>
 
       {/* Pricing Table Section */}

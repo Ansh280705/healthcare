@@ -126,7 +126,7 @@ const DesktopHeader = ({ user, credits }) => (
         href="/doctors"
         className="hover:text-client transition underline-center"
       >
-        Find Doctors
+        Find Experts
       </Link>
       <Link
         href="/blog"
@@ -152,7 +152,7 @@ const DesktopHeader = ({ user, credits }) => (
           href="/appointments"
           className="hover:text-client transition underline-center"
         >
-          Appointments
+          Sessions
         </Link>
       )}
     </div>
@@ -171,7 +171,7 @@ const DesktopHeader = ({ user, credits }) => (
       {user?.role === "DOCTOR" && (
         <Link href="/doctor">
           <Button variant="outline" size="sm">
-            Doctor Dashboard
+            Professional Dashboard
           </Button>
         </Link>
       )}
@@ -179,7 +179,7 @@ const DesktopHeader = ({ user, credits }) => (
       {user?.role === "PATIENT" && (
         <Link href="/appointments">
           <Button variant="outline" size="sm">
-            My Appointments
+            My Sessions
           </Button>
         </Link>
       )}
@@ -242,7 +242,7 @@ const MobileMenu = ({ user }) => (
               className="flex items-center gap-2 p-1 rounded-md active:bg-client/20"
             >
               <Calendar className="w-5 h-5" />
-              My Appointments
+              My Sessions
             </Link>
           </SheetClose>
         )}
@@ -266,7 +266,7 @@ const MobileMenu = ({ user }) => (
               className="flex items-center gap-2 p-1 rounded-md active:bg-client/20"
             >
               <Stethoscope className="w-5 h-5" />
-              Doctor Dashboard
+              Professional Dashboard
             </Link>
           </SheetClose>
         )}
@@ -285,7 +285,7 @@ const MobileMenu = ({ user }) => (
 
         <SheetClose asChild>
           <Link href="/doctors" className="p-1 font-bold rounded-md active:bg-client/20">
-            Find Doctors
+            Find Experts
           </Link>
         </SheetClose>
 

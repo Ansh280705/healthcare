@@ -29,7 +29,7 @@ export default function Feature({ features }) {
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold">How it works</h2>
           <p className="text-muted-foreground mt-2">
-            Healthcare in just a few clicks
+            Workflow management in just a few clicks
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export default function Feature({ features }) {
             ))}
           </Swiper>
         ) : (
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
               <FeatureCard key={i} feature={f} />
             ))}

@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { creditBenefits, features, testimonials } from "@/lib/data";
+import { creditBenefits, features } from "@/lib/data";
 
 import TypingText from "@/components/ui/typingtext";
 import Pricing from "../components/pricing";
@@ -39,14 +39,14 @@ export default function Home() {
               className="bg-client border-2 border-[#4b736f] 
               px-4 py-1 text-sm sm:text-base text-white mb-1 w-max mx-auto md:mx-0"
             >
-         Healthcare Made Simple
+          Smart Appointment Booking 
             </Badge>
 
             <h1
-              className="text-2xl sm:text-4xl md:text-4xl lg:text-5xl
+              className="text-xl sm:text-4xl md:text-4xl lg:text-5xl
                leading-tight font-bold"
             >
-              Consult India's Top Doctors
+              Schedule with Top Professionals
               <br /> Online
             </h1>
 
@@ -54,12 +54,10 @@ export default function Home() {
               <TypingText />
             </div>
 
-            <p
-              className="text-sm sm:text-lg font-medium max-w-md
-              text-muted-foreground mt-5 mx-auto md:mx-0"
-            >
-              Connect instantly with trusted doctors online.
-            </p>
+              {/* DoctorDesk is a SaaS-based scheduling and workflow management platform that helps
+              independent professionals manage appointments, sessions, and daily operations
+              through a secure software system. */}
+              DoctorDesk is a secure scheduling and workflow platform for independent professionals.
 
             <div
               className="mt-6 flex flex-col sm:flex-row gap-2 sm:gap-5
@@ -67,7 +65,7 @@ export default function Home() {
             >
               <Button asChild size="lg" className="bg-client btn-shine font-bold">
                 <Link href="/onboarding">
-                  Book consultation Now <ArrowRight className="h-5 w-5 ml-1" />
+                  Book Appointment <ArrowRight className="h-5 w-5 ml-1" />
                 </Link>
               </Button>
 
@@ -77,7 +75,7 @@ export default function Home() {
                 variant="outline"
                 className="bg-[#f8f8ff] border-1 border-client font-bold"
               >
-                <Link href="/doctors">Find Doctors</Link>
+                <Link href="/doctors">Schedule Session</Link>
               </Button>
             </div>
           </div>
@@ -89,7 +87,7 @@ export default function Home() {
           >
             <Image
               src="/heroimg.png"
-              alt="Doctor consultation"
+              alt="Session Scheduling"
               fill
               priority
               className="object-contain"
@@ -181,10 +179,10 @@ export default function Home() {
         <div className="container mx-auto px-6 lg:px-20 max-w-6xl">
           <div className="text-center mb-10">
             <Badge className="bg-[#6ba49f] text-white mb-3">
-              Affordable Healthcare
+              Affordable Management
             </Badge>
             <h2 className="text-3xl sm:text-4xl font-bold">
-              Consultation Packages
+              Subscription Packages
             </h2>
             <p className="text-muted-foreground mt-2">
               Choose a plan that fits your needs
@@ -200,7 +198,7 @@ export default function Home() {
                   <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5 text-[#6ba49f]" />
                 </span>
 
-                <span>How Our Credit System Works</span>
+                <span>How Our Booking System Works</span>
               </CardTitle>
             </CardHeader>
             <CardContent>

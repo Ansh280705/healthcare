@@ -47,7 +47,7 @@ export default async function DoctorDashboardPage() {
           className="flex-1 md:flex md:items-center md:justify-start md:px-4 md:py-3 w-full"
         >
           <Calendar className="h-4 w-4 mr-2  md:inline" />
-          <span>Appointments</span>
+          <span>Sessions</span>
         </TabsTrigger>
         <TabsTrigger
           value="availability"

@@ -68,10 +68,10 @@ export function PendingDoctors({ doctors }) {
       <Card className="bg-muted/20 border-emerald-900/20">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-client">
-            Pending Doctor Verifications
+            Pending Professional Verifications
           </CardTitle>
           <CardDescription>
-            Review and approve doctor applications
+            Review and approve professional applications
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -133,10 +133,10 @@ export function PendingDoctors({ doctors }) {
           <DialogContent className="max-w-3xl">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold text-black">
-                Doctor Verification Details
+                Professional Verification Details
               </DialogTitle>
               <DialogDescription>
-                Review the doctor&apos;s information carefully before making a
+                Review the professional&apos;s information carefully before making a
                 decision
               </DialogDescription>
             </DialogHeader>

@@ -2,18 +2,18 @@ import { Zap, Stethoscope, ShieldCheck } from "lucide-react";
 
 const stats = [
   {
-    title: "Fast Online Consultations",
-    desc: "Quick and hassle-free access to medical professionals.",
+    title: "Fast Online Sessions",
+    desc: "Quick and hassle-free access to independent professionals.",
     icon: Zap,
   },
   {
-    title: "Verified Doctors",
-    desc: "Consult licensed and trusted healthcare experts.",
+    title: "Verified Professionals",
+    desc: "Consult licensed and trusted experts.",
     icon: Stethoscope,
   },
   {
-    title: "Secure Medical Platform",
-    desc: "Your health data is protected with modern security standards.",
+    title: "Secure Technology Platform",
+    desc: "Your session data is protected with modern security standards.",
     icon: ShieldCheck,
   },
 ];

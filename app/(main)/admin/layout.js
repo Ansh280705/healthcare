@@ -9,7 +9,7 @@ import DynamicBackLink from "@/components/DynamicBackLink";
 
 export const metadata = {
   title: "Admin Settings - DoctorDesk",
-  description: "Manage doctors, patients, blogs, and platform settings",
+  description: "Manage professionals, clients, blogs, and platform settings",
 };
 
 export default async function AdminLayout({ children }) {
@@ -30,7 +30,7 @@ export default async function AdminLayout({ children }) {
             <AlertCircle className="h-4 w-4 hidden md:inline" /> Pending Verification
           </TabsTrigger>
           <TabsTrigger value="doctors" className="flex-1 md:flex md:items-center md:justify-start md:px-4 md:py-3 w-full">
-            <Users className="h-4 w-4 hidden md:inline" /> Doctors
+            <Users className="h-4 w-4 hidden md:inline" /> Professionals
           </TabsTrigger>
           <TabsTrigger value="payouts" className="flex-1 md:flex md:items-center md:justify-start md:px-4 md:py-3 w-full">
             <CreditCard className="h-4 w-4 hidden md:inline" /> Payouts

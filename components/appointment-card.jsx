@@ -414,7 +414,7 @@ export function AppointmentCard({
             {appointment.status === "SCHEDULED" && (
               <div className="space-y-2">
                 <h4 className="text-sm font-medium text-muted-foreground">
-                  Video Consultation
+                  Live Session
                 </h4>
                 <Button
                   className="w-full bg-amber-600 hover:bg-amber-500 "
@@ -444,7 +444,7 @@ export function AppointmentCard({
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <h4 className="text-sm font-medium text-muted-foreground">
-                  Doctor Notes
+                  Professional Notes
                 </h4>
                 {userRole === "DOCTOR" &&
                   action !== "notes" &&

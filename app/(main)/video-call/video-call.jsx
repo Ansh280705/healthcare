@@ -370,7 +370,7 @@ const [showPrescription, setShowPrescription] = useState(false);
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-6">
           <h1 className="text-3xl font-bold text-client mb-2">
-            Video Consultation
+            Live Session
           </h1>
           <p className="text-muted-foreground">
             {isConnected
@@ -494,7 +494,7 @@ const [showPrescription, setShowPrescription] = useState(false);
                 {isAudioEnabled ? " Microphone on" : " Microphone off"}
               </p>
               <p className="text-muted-foreground text-sm mt-1">
-                When you're finished with your consultation, click the red
+                When you're finished with your session, click the red
                 button to end the call
               </p>
             </div>

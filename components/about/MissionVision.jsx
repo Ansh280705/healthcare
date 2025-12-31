@@ -11,8 +11,8 @@ export default function MissionVision() {
             Our Mission
           </h3>
           <p className="text-muted-foreground leading-relaxed mb-8">
-            Our mission is to make quality healthcare accessible and affordable
-            through digital innovation, enabling patients to consult doctors
+            Our mission is to make quality professional services accessible and affordable
+            through digital innovation, enabling users to consult experts
             online without unnecessary delays or hidden costs.
           </p>
 
@@ -20,9 +20,9 @@ export default function MissionVision() {
             Our Vision
           </h3>
           <p className="text-muted-foreground leading-relaxed">
-            We envision DoctorDesk as a trusted digital healthcare platform that
-            empowers patients, supports doctors, and transforms the future of
-            online medical consultations.
+            We envision DoctorDesk as a trusted digital platform that
+            empowers users, supports professionals, and transforms the future of
+            online professional sessions.
           </p>
         </div>
 

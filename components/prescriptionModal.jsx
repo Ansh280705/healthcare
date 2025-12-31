@@ -34,12 +34,12 @@ export default function PrescriptionModal({ appointment, doctor, onClose }) {
         medicalHistory: form.medicalHistory,
       });
 
-      toast.success("Prescription saved successfully");
+      toast.success("Notes saved successfully");
       onClose();
       router.push("/doctor?tab=appointments");
     
     } catch (err) {
-      toast.error(err.message || "Failed to save prescription");
+      toast.error(err.message || "Failed to save notes");
     } finally {
       setLoading(false);
     }
@@ -48,12 +48,12 @@ export default function PrescriptionModal({ appointment, doctor, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg">
-        <h2 className="text-xl font-semibold mb-4">📝 Prescription</h2>
+        <h2 className="text-xl font-semibold mb-4">📝 Session Notes</h2>
 
         {/* Patient & Doctor Info */}
         <div className="grid grid-cols-2 gap-4 mb-6 text-sm bg-gray-50 p-3 rounded">
           <div>
-            <p className="font-medium">Patient Name</p>
+            <p className="font-medium">Client Name</p>
             <p className="text-gray-600">{appointment.patientName}</p>
           </div>
 
@@ -73,7 +73,7 @@ export default function PrescriptionModal({ appointment, doctor, onClose }) {
           </div>
 
           <div>
-            <p className="font-medium">Doctor</p>
+            <p className="font-medium">Professional</p>
             <p className="text-gray-600">{doctor?.name}</p>
           </div>
 
@@ -88,26 +88,26 @@ export default function PrescriptionModal({ appointment, doctor, onClose }) {
         {/* FORM INPUTS */}
 
         <textarea
-          placeholder="Diagnosis"
+          placeholder="Summary / Topic"
           className="w-full border p-2 rounded mb-3"
           value={form.diagnosis}
           onChange={(e) => setForm({ ...form, diagnosis: e.target.value })}
         />
         <textarea
-          placeholder="Medical History"
+          placeholder="Background / Context"
           className="w-full border p-2 rounded mb-3"
           value={form.medicalHistory}
           onChange={(e) => setForm({ ...form, medicalHistory: e.target.value })}
         />
         <textarea
-          placeholder="Medicines"
+          placeholder="Recommendations / Action Items"
           className="w-full border p-2 rounded mb-3"
           value={form.medicines}
           onChange={(e) => setForm({ ...form, medicines: e.target.value })}
         />
 
         <textarea
-          placeholder="Instructions"
+          placeholder="Next Steps"
           className="w-full border p-2 rounded mb-3"
           value={form.instructions}
           onChange={(e) => setForm({ ...form, instructions: e.target.value })}

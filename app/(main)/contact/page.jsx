@@ -95,7 +95,7 @@ export default function ContactPage() {
         <div className="text-center mb-14">
           <h1 className="text-4xl font-bold">Contact Our Team</h1>
           <p className="text-muted-foreground mt-2 max-w-xl mx-auto">
-            Have questions about online doctor consultations, credits, or appointments?
+            Have questions about online professional sessions, credits, or appointments?
             Our team is here to help you.
           </p>
         </div>
@@ -182,6 +182,30 @@ export default function ContactPage() {
             </Card>
           </div>
 
+          {/* COMPANY DETAILS */}
+          <Card className="lg:col-span-2">
+            <CardHeader>
+              <CardTitle>Company Details</CardTitle>
+            </CardHeader>
+            <CardContent className="grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <h4 className="font-semibold text-foreground">Registered Entity</h4>
+                    <p className="text-muted-foreground mt-1">DoctorDesk</p>
+                </div>
+                 <div>
+                    <h4 className="font-semibold text-foreground">Business Type</h4>
+                    <p className="text-muted-foreground mt-1">SaaS / IT Services</p>
+                </div>
+                 <div>
+                    <h4 className="font-semibold text-foreground">Platform Category</h4>
+                    <p className="text-muted-foreground mt-1">Appointment Booking & Practice Management Software</p>
+                </div>
+                 <div>
+                    <h4 className="font-semibold text-foreground">Support Email</h4>
+                    <p className="text-client mt-1">support@doctordesk.co.in</p>
+                </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

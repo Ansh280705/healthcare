@@ -12,15 +12,15 @@ export default function AboutHero() {
           </h1>
 
           <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-            DoctorDesk is a modern online healthcare platform that enables
-            patients to consult verified doctors digitally using a secure,
-            transparent, and credit-based consultation system.
+            DoctorDesk is a modern online professional platform that enables
+            users to consult confirmed experts digitally using a secure,
+            transparent, and credit-based session system.
           </p>
 
           <p className="text-muted-foreground leading-relaxed">
             Built with scalability and user trust in mind, DoctorDesk focuses on
-            fast online doctor consultations, data security, and a seamless
-            patient experience.
+            fast online expert sessions, data security, and a seamless
+            user experience.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export default function AboutHero() {
         <div className="relative">
          <Image
   src="/about/heroo.png"
-  alt="Online doctor consultation platform"
+  alt="Online professional platform"
   width={600}
   height={420}
   className="rounded-3xl object-cover"
@@ -37,8 +37,8 @@ export default function AboutHero() {
 
           <div className="absolute -bottom-8 right-6 bg-card border rounded-2xl p-6 shadow-lg max-w-sm">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              A smarter approach to digital healthcare — focused on accessibility,
-              transparency, and reliable medical consultations.
+              A smarter approach to digital workflow — focused on accessibility,
+              transparency, and reliable professional sessions.
             </p>
           </div>
         </div>

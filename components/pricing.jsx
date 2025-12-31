@@ -67,7 +67,7 @@ export default function Pricing() {
         currency: "INR",
         order_id: order.id,
         name: "DoctorDesk",
-        description: `${plan.credits} Consultation Credits`,
+        description: "Platform Usage Fee – DoctorDesk SaaS Subscription",
 
         /* ✅ PAYMENT SUCCESS */
         handler: async (response) => {

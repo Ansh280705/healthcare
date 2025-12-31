@@ -2,7 +2,7 @@ import PageLoader from "@/components/PageLoader";
 
 export const metadata = {
   title: "Find Doctors - DoctorDesk",
-  description: "Browse and book appointments with top healthcare providers",
+  description: "Browse and book sessions with top professionals",
 };
 
 export default async function DoctorsLayout({ children }) {

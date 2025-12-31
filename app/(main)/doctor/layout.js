@@ -11,7 +11,7 @@ export default async function DoctorDashboardLayout({ children }) {
   return (
     <PageLoader>
     <div className="container mx-auto px-4 py-8">
-      <PageHeader icon={<Stethoscope />} title="Doctor Dashboard" />
+      <PageHeader icon={<Stethoscope />} title="Professional Dashboard" />
 
       {children}
     </div>

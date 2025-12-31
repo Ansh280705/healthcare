@@ -28,10 +28,10 @@ export default function PrescriptionForm({ appointment, doctor }) {
         instructions: form.instructions,
         followUpDate: form.followUpDate,
       });
-      toast.success("Prescription saved successfully");
+      toast.success("Notes saved successfully");
     } catch (error) {
       console.error(error);
-      toast.error("Failed to save prescription");
+      toast.error("Failed to save notes");
     } finally {
       setLoading(false);
     }
@@ -39,15 +39,15 @@ export default function PrescriptionForm({ appointment, doctor }) {
 
   return (
     <div className="bg-white rounded-lg p-6 shadow-md mt-6">
-      <h2 className="text-xl font-semibold mb-4">📝 Prescription</h2>
+      <h2 className="text-xl font-semibold mb-4">📝 Session Notes</h2>
 
       <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
         <div>
-          <p className="font-medium">Patient</p>
+          <p className="font-medium">Client</p>
           <p className="text-gray-600">{appointment.patient.name}</p>
         </div>
         <div>
-          <p className="font-medium">Doctor</p>
+          <p className="font-medium">Professional</p>
           <p className="text-gray-600">{doctor.name}</p>
         </div>
         <div>
@@ -57,19 +57,19 @@ export default function PrescriptionForm({ appointment, doctor }) {
       </div>
 
       <textarea
-        placeholder="Diagnosis"
+        placeholder="Summary / Topic"
         className="w-full border p-2 rounded mb-3"
         value={form.diagnosis}
         onChange={(e) => setForm({ ...form, diagnosis: e.target.value })}
       />
       <textarea
-        placeholder="Medicines"
+        placeholder="Recommendations / Action Items"
         className="w-full border p-2 rounded mb-3"
         value={form.medicines}
         onChange={(e) => setForm({ ...form, medicines: e.target.value })}
       />
       <textarea
-        placeholder="Instructions"
+        placeholder="Next Steps"
         className="w-full border p-2 rounded mb-3"
         value={form.instructions}
         onChange={(e) => setForm({ ...form, instructions: e.target.value })}
@@ -86,7 +86,7 @@ export default function PrescriptionForm({ appointment, doctor }) {
         onClick={handleSubmit}
         className="bg-emerald-600 text-white px-4 py-2 rounded disabled:opacity-60"
       >
-        {loading ? "Saving..." : "Save Prescription"}
+        {loading ? "Saving..." : "Save Notes"}
       </button>
     </div>
   );

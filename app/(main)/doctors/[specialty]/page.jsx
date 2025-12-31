@@ -37,10 +37,10 @@ export default async function DoctorSpecialtyPage({ params }) {
       ) : (
         <div className="text-center py-12">
           <h3 className="text-xl font-medium text-client mb-2">
-            No doctors available
+            No experts available
           </h3>
           <p className="text-muted-foreground">
-            There are currently no verified doctors in this specialty.
+            There are currently no verified professionals in this specialty.
           </p>
         </div>
       )}
