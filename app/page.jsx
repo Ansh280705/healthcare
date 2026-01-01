@@ -54,10 +54,10 @@ export default function Home() {
               <TypingText />
             </div>
 
-              {/* DoctorDesk is a SaaS-based scheduling and workflow management platform that helps
+              DoctorDesk is a SaaS-based scheduling and workflow management platform that helps
               independent professionals manage appointments, sessions, and daily operations
-              through a secure software system. */}
-              DoctorDesk is a secure scheduling and workflow platform for independent professionals.
+              through a secure software system.
+              {/* DoctorDesk is a secure scheduling and workflow platform for independent professionals. */}
 
             <div
               className="mt-6 flex flex-col sm:flex-row gap-2 sm:gap-5
