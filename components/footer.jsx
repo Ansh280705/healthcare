@@ -44,7 +44,7 @@ export default function Footer() {
           {/* CONTENT */}
           <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
             <h2 className="text-2xl md:text-3xl font-semibold leading-snug">
-            Consult trusted experts online using a simple credit-based system.
+              Consult trusted experts online using a simple credit-based system.
             </h2>
 
             <div className="flex items-center gap-4 md:justify-end">
@@ -78,8 +78,8 @@ export default function Footer() {
               Doctor<span className="text-client">Desk</span>
             </h3>
             <p className="mt-3 max-w-sm">
-              Online session scheduling made simple, secure, and accessible
-              for everyone.
+              Online session scheduling made simple, secure, and accessible for
+              everyone.
             </p>
           </div>
 
@@ -193,7 +193,7 @@ export default function Footer() {
       <div>
         <div className="container mx-auto px-6 lg:px-20 border-t border-border/60 py-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <span>🟢 All systems operational</span>
-          <span>© 2025 DoctorDesk</span>
+          <span>© {new Date().getFullYear()} DoctorDesk</span>
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="hover:text-client">
               Privacy
@@ -207,11 +207,20 @@ export default function Footer() {
           </div>
         </div>
         <div className="container mx-auto px-6 lg:px-20 py-4 text-xs text-muted-foreground text-center border-t border-border/60 flex flex-col items-center gap-2">
-            <p><strong>Company Name:</strong> DoctorDesk | <strong>Business Type:</strong> SaaS / IT Services | <strong>Category:</strong> Appointment Booking & Practice Management Software</p>
-            <p><strong>Support:</strong> support@doctordesk.co.in</p>
-            <p className="mt-2">DoctorDesk is a technology platform and does not provide medical consultation,
-            diagnosis, treatment, or prescriptions. All services are provided independently
-            by professionals using the platform.</p>
+          <p>
+            <strong>Company Name:</strong> DoctorDesk |{" "}
+            <strong>Business Type:</strong> SaaS / IT Services |{" "}
+            <strong>Category:</strong> Appointment Booking & Practice Management
+            Software
+          </p>
+          <p>
+            <strong>Support:</strong> support@doctordesk.co.in
+          </p>
+          <p className="mt-2">
+            DoctorDesk is a technology platform and does not provide medical
+            consultation, diagnosis, treatment, or prescriptions. All services
+            are provided independently by professionals using the platform.
+          </p>
         </div>
       </div>
       {modal && (
@@ -229,7 +238,7 @@ export default function Footer() {
               <>
                 <h4 className="text-lg font-semibold mb-2">Send SMS</h4>
                 <p className="text-muted-foreground mb-4 flex items-center gap-2">
-                  Send a quick message at 
+                  Send a quick message at
                   <span className="flex items-center gap-1 font-medium text-foreground">
                     <Phone className="w-4 h-4" />
                     +91 81094 24356
@@ -249,7 +258,7 @@ export default function Footer() {
               <>
                 <h4 className="text-lg font-semibold mb-2">Send Email</h4>
                 <p className="text-muted-foreground mb-4 flex items-center gap-2">
-                  Send Email At 
+                  Send Email At
                   <span className="flex items-center gap-1 font-medium text-foreground ">
                     <MailIcon className="w-4 h-4" />
                     doctordeskofficial@gmail.com
@@ -268,11 +277,9 @@ export default function Footer() {
             {modal === "insta" && (
               <>
                 <h4 className="text-lg font-semibold mb-2">Instagram</h4>
-               <p className="text-muted-foreground mb-4 flex flex-col items-center gap-2">
-                Follow On Instagram <Link2 className="w-4 h-4" />
-                  <span className="flex items-center gap-1 font-medium text-foreground  transition-all duration-700">
-                 
-                  </span>
+                <p className="text-muted-foreground mb-4 flex flex-col items-center gap-2">
+                  Follow On Instagram <Link2 className="w-4 h-4" />
+                  <span className="flex items-center gap-1 font-medium text-foreground  transition-all duration-700"></span>
                 </p>
                 <Link
                   href="https://www.instagram.com/dr.ankit_chourasiya_/"

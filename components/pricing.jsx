@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Wallet } from "lucide-react";
 import { toast } from "sonner";
 import { useEffect, useRef, useState } from "react";
 import { useCredits } from "@/context/CreditsContext";
@@ -20,7 +20,7 @@ const plans = [
 
 export default function Pricing() {
   const [loading, setLoading] = useState(null);
-  const { setCredits } = useCredits();
+  const { credits, loading: creditsLoading, setCredits } = useCredits();
   const { isSignedIn } = useAuth();
   const [isMobile, setIsMobile] = useState(false);
 
@@ -50,21 +50,21 @@ export default function Pricing() {
       const amount = plan.price;
       const firstname = user?.firstName || "User";
       const email = user?.primaryEmailAddress?.emailAddress || "test@test.com";
-      const phone = "9999999999"; // PayU requires phone, use dummy if not available or ask user. 
+      const phone = "9999999999"; // PayU requires phone, use dummy if not available or ask user.
       // Using dummy for now as Clerk might not have phone.
 
       // 1. Generate Hash
       const res = await fetch("/api/payu/hash", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-            txnid, 
-            amount, 
-            productinfo, 
-            firstname, 
-            email,
-            udf1: plan.credits,
-            udf2: user.id
+        body: JSON.stringify({
+          txnid,
+          amount,
+          productinfo,
+          firstname,
+          email,
+          udf1: plan.credits,
+          udf2: user.id,
         }),
       });
 
@@ -103,16 +103,42 @@ export default function Pricing() {
 
       document.body.appendChild(form);
       form.submit();
-
     } catch (err) {
       console.error(err);
-      toast.error("Payment Error", { description: "Could not initiate payment" });
+      toast.error("Payment Error", {
+        description: "Could not initiate payment",
+      });
       setLoading(null);
     }
   };
 
   return (
     <div className="mt-14">
+      {/* Current balance (signed-in users) */}
+      {isSignedIn && (
+     <div className="mb-6 flex items-center justify-center">
+  <div
+    className="
+      flex items-center gap-3 px-4 py-2
+      rounded-full
+      bg-gradient-to-r from-yellow-100 to-yellow-200
+      border border-yellow-300
+      shadow-sm
+    "
+  >
+    <div className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-400/30">
+      <Wallet className="w-5 h-5 text-yellow-700" />
+    </div>
+
+    <div className="text-sm leading-tight">
+      <p className="text-yellow-700 font-medium">Wallet Balance</p>
+      <p className="font-semibold text-yellow-900">
+        {creditsLoading ? "Loading..." : `${credits} credits`}
+      </p>
+    </div>
+  </div>
+</div>
+      )}
       {isMobile ? (
         // 🔹 Mobile: Swiper
         <Swiper
