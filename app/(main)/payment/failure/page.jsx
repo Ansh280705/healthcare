@@ -24,7 +24,7 @@ function FailureContent() {
         <Link href="/pricing">
           <Button>Try Again</Button>
         </Link>
-        <Link href="/dashboard">
+        <Link href="/">
           <Button variant="outline">Go to Dashboard</Button>
         </Link>
       </div>
