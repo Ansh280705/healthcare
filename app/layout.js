@@ -19,7 +19,7 @@ const inter = Poppins({
 
 export const metadata = {
   title: "DoctorDesk",
-  description: "create by Abhi_Anshu_Ansh",
+  description: "DoctorDesk is a secure scheduling and workflow platform for independent professionals.",
 };
 
 export default async function RootLayout({ children }) {
