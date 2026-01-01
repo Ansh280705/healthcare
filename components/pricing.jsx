@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Check, Sparkles, Wallet } from "lucide-react";
 import { toast } from "sonner";
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams, usePathname } from "next/navigation";
 import { useCredits } from "@/context/CreditsContext";
 import { useAuth, useUser, SignInButton } from "@clerk/nextjs";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,6 +23,10 @@ export default function Pricing() {
   const [loading, setLoading] = useState(null);
   const { credits, loading: creditsLoading, setCredits } = useCredits();
   const { isSignedIn } = useAuth();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const showWalletParam = searchParams?.get("showWallet") === "1";
+  const showPanel = showWalletParam || pathname === "/pricing";
   const [isMobile, setIsMobile] = useState(false);
 
   // Prevent cancel toast after success
@@ -114,30 +119,47 @@ export default function Pricing() {
 
   return (
     <div className="mt-14">
-      {/* Current balance (signed-in users) */}
-      {isSignedIn && (
-     <div className="mb-6 flex items-center justify-center">
-  <div
-    className="
+      {/* Current balance (signed-in users) or when explicitly requested via ?showWallet=1 */}
+      {showPanel && (isSignedIn || showWalletParam) && (
+        <div className="mb-6 flex items-center justify-center">
+          <div
+            className="
       flex items-center gap-3 px-4 py-2
       rounded-full
       bg-gradient-to-r from-yellow-100 to-yellow-200
       border border-yellow-300
       shadow-sm
     "
-  >
-    <div className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-400/30">
-      <Wallet className="w-5 h-5 text-yellow-700" />
-    </div>
+          >
+            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-400/30">
+              <Wallet className="w-5 h-5 text-yellow-700" />
+            </div>
 
-    <div className="text-sm leading-tight">
-      <p className="text-yellow-700 font-medium">Wallet Balance</p>
-      <p className="font-semibold text-yellow-900">
-        {creditsLoading ? "Loading..." : `${credits} credits`}
-      </p>
-    </div>
-  </div>
-</div>
+            <div className="text-sm leading-tight">
+              <p className="text-yellow-700 font-medium">Wallet Balance</p>
+              {isSignedIn ? (
+                <p className="font-semibold text-yellow-900">
+                  {creditsLoading ? "Loading..." : `${credits} credits`}
+                </p>
+              ) : (
+                <div className="flex items-center gap-3">
+                  <p className="font-semibold text-yellow-900">
+                    Sign in to view balance
+                  </p>
+                  <SignInButton
+                    mode="modal"
+                    forceRedirectUrl="/pricing?showWallet=1"
+                    fallbackRedirectUrl="/pricing?showWallet=1"
+                  >
+                    <Button size="sm" className="bg-client text-white">
+                      Sign in
+                    </Button>
+                  </SignInButton>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       )}
       {isMobile ? (
         // 🔹 Mobile: Swiper

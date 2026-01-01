@@ -75,7 +75,7 @@ const MobileHeader = ({ user }) => {
       {/* RIGHT - Credits + User */}
       <div className="absolute right-2 flex items-center gap-2">
         {user && (
-          <Link href="/pricing">
+          <Link href="/pricing?showWallet=1">
             <div
               className="flex items-center gap-1 px-2 py-1
              border border-amber-500 text-yellow-500
@@ -270,7 +270,7 @@ const MobileMenu = ({ user }) => {
       <SheetContent side="left" className="w-[260px] px-5 pt-10">
         {/* Wallet balance - top of mobile menu */}
         {user && (
-          <div >
+          <div>
             <div className="flex items-center gap-3 px-3 py-2 rounded-3xl bg-yellow-50 border border-yellow-200">
               <div className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-400/30">
                 <Wallet className="w-5 h-5 text-yellow-700" />
@@ -360,7 +360,7 @@ const MobileMenu = ({ user }) => {
 
           <SheetClose asChild>
             <Link
-              href="/pricing"
+              href="/pricing?showWallet=1"
               className="p-1 font-bold rounded-md active:bg-client/20"
             >
               Pricing
