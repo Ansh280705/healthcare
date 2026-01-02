@@ -13,6 +13,8 @@ import { AdminBlogs } from "./components/admin-blogs";
 import { LabsManager } from "./components/labs-manager";
 import { getLabs } from "@/actions/labs";
 
+import { TabAnimatedContent } from "./components/tab-animated-content";
+
 export default async function AdminPage() {
   const [pendingDoctorsData, verifiedDoctorsData, pendingPayoutsData, blogsData,labsData] =
     await Promise.all([
@@ -26,23 +28,33 @@ export default async function AdminPage() {
   return (
     <>
       <TabsContent value="pending" className="border-none p-0">
-        <PendingDoctors doctors={pendingDoctorsData.doctors || []} />
+        <TabAnimatedContent>
+          <PendingDoctors doctors={pendingDoctorsData.doctors || []} />
+        </TabAnimatedContent>
       </TabsContent>
 
       <TabsContent value="doctors" className="border-none p-0">
-        <VerifiedDoctors doctors={verifiedDoctorsData.doctors || []} />
+        <TabAnimatedContent>
+          <VerifiedDoctors doctors={verifiedDoctorsData.doctors || []} />
+        </TabAnimatedContent>
       </TabsContent>
 
       <TabsContent value="payouts" className="border-none p-0">
-        <PendingPayouts payouts={pendingPayoutsData.payouts || []} />
+        <TabAnimatedContent>
+          <PendingPayouts payouts={pendingPayoutsData.payouts || []} />
+        </TabAnimatedContent>
       </TabsContent>
 
       <TabsContent value="blogs" className="border-none p-0">
-        <AdminBlogs blogs={blogsData.blogs || []} />
+        <TabAnimatedContent>
+          <AdminBlogs blogs={blogsData.blogs || []} />
+        </TabAnimatedContent>
       </TabsContent>
 
        <TabsContent value="labs" className="border-none p-0">
-        <LabsManager labs={labsData|| []} />
+        <TabAnimatedContent>
+          <LabsManager labs={labsData|| []} />
+        </TabAnimatedContent>
       </TabsContent>
     </>
   );

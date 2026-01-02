@@ -104,10 +104,10 @@ export function LabsManager({ labs }) {
   }
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
+    <Card className="bg-card border-emerald-900/20">
+      <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <CardTitle>Diagnostic Labs</CardTitle>
+          <CardTitle className="text-xl font-bold text-client">Diagnostic Labs</CardTitle>
           <CardDescription>Manage your diagnostic labs here</CardDescription>
         </div>
         <Dialog open={open} onOpenChange={setOpen}>

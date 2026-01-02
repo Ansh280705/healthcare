@@ -65,7 +65,7 @@ export function VerifiedDoctors({ doctors }) {
 
   return (
     <div>
-      <Card className="bg-[#ffffff] border-emerald-900/20">
+      <Card className="bg-card border-emerald-900/20">
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
