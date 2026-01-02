@@ -65,13 +65,13 @@ export function PendingDoctors({ doctors }) {
 
   return (
     <div>
-      <Card className="bg-muted/20 border-emerald-900/20">
+      <Card className="bg-[#ffffff] border-emerald-900/20">
         <CardHeader>
           <CardTitle className="text-xl font-bold text-client">
-            Pending Professional Verifications
+            Pending Doctor Verifications
           </CardTitle>
           <CardDescription>
-            Review and approve professional applications
+            Review and approve doctor applications
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -133,10 +133,10 @@ export function PendingDoctors({ doctors }) {
           <DialogContent className="max-w-3xl">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold text-black">
-                Professional Verification Details
+                Doctor Verification Details
               </DialogTitle>
               <DialogDescription>
-                Review the professional&apos;s information carefully before making a
+                Review the doctor&apos;s information carefully before making a
                 decision
               </DialogDescription>
             </DialogHeader>

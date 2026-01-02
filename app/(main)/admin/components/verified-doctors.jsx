@@ -65,22 +65,22 @@ export function VerifiedDoctors({ doctors }) {
 
   return (
     <div>
-      <Card className="bg-muted/20 border-emerald-900/20">
+      <Card className="bg-[#ffffff] border-emerald-900/20">
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <CardTitle className="text-xl font-bold text-client">
-                Manage Professionals
+                Manage Doctors
               </CardTitle>
               <CardDescription>
-                View and manage all verified experts
+                View and manage all verified doctors
               </CardDescription>
             </div>
             <div className="relative w-full md:w-64">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-card" />
               <Input
-                placeholder="Search professionals..."
-                className="pl-8 bg-background border-emerald-900/20"
+                placeholder="Search doctors..."
+                className="pl-8 bg-foreground text-card border-emerald-900/20"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -92,8 +92,8 @@ export function VerifiedDoctors({ doctors }) {
           {filteredDoctors.length === 0 ? (
             <div className="text-center py-8 text-muted-foreground">
               {searchTerm
-                ? "No professionals match your search criteria."
-                : "No verified experts available."}
+                ? "No doctors match your search criteria."
+                : "No verified doctors available."}
             </div>
           ) : (
             <div className="space-y-4">
