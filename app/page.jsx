@@ -102,7 +102,7 @@ export default function Home() {
               ["10 min", "Avg Response"],
               ["10000+", "Users"],
               ["365", "Days Active"],
-              ["24 / 7", "Support"],
+              ["24×7", "Support"],
             ].map(([value, label]) => (
               <div
                 key={label}

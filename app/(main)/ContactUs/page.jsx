@@ -199,7 +199,15 @@ export default function ContactPage() {
                 <p className="text-muted-foreground mt-1">DoctorDesk</p>
               </div>
               <div>
+                <h4 className="font-semibold text-foreground">Owner Name</h4>
+                <p className="text-muted-foreground mt-1">Dr. Ankit Chourasiya</p>
+              </div>
+              <div>
                 <h4 className="font-semibold text-foreground">Business Type</h4>
+                <p className="text-muted-foreground mt-1">Individual / Proprietorship</p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-foreground">Service Type</h4>
                 <p className="text-muted-foreground mt-1">SaaS / IT Services</p>
               </div>
               <div>
@@ -212,7 +220,15 @@ export default function ContactPage() {
               </div>
               <div>
                 <h4 className="font-semibold text-foreground">Support Email</h4>
-                <p className="text-client mt-1">support@doctordesk.co.in</p>
+                <p className="text-client mt-1">doctordeskOfficial@gmail.com</p>
+              </div>
+              <div className="md:col-span-2">
+                <h4 className="font-semibold text-foreground">Registered Address</h4>
+                <p className="text-muted-foreground mt-1 text-xs">
+                  First Floor, Plot No. 17, Above New Globas Medical, Opposite
+                  Satish Kirana, Gori Nagar, New Gouri Nagar, Sukhliya, Indore,
+                  Madhya Pradesh – 452010
+                </p>
               </div>
             </CardContent>
           </Card>

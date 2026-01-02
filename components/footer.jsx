@@ -13,6 +13,7 @@ import {
   Phone,
   MailIcon,
   Link2,
+  MapPin,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -81,6 +82,22 @@ export default function Footer() {
               Online session scheduling made simple, secure, and accessible for
               everyone.
             </p>
+            <div className="mt-6 space-y-3 text-xs">
+              <div className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-client shrink-0 mt-0.5" />
+                <p>
+                  First Floor, Plot No. 17, Above New Globas Medical, Opposite Satish Kirana, Gori Nagar, New Gouri Nagar, Sukhliya, Indore, Madhya Pradesh – 452010
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-client shrink-0" />
+                <p>+91 81094-24356</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-client shrink-0" />
+                <p>doctordeskofficial@gmail.com</p>
+              </div>
+            </div>
           </div>
 
           {/* Product */}
@@ -143,7 +160,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-client"
                 >
-                  About
+                  About Us
                 </Link>
               </li>
               <li>
@@ -164,6 +181,16 @@ export default function Footer() {
                   className="hover:text-client"
                 >
                   Developers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/legal-information"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-client"
+                >
+                  Legal Information
                 </Link>
               </li>
             </ul>
@@ -209,12 +236,12 @@ export default function Footer() {
         <div className="container mx-auto px-6 lg:px-20 py-4 text-xs text-muted-foreground text-center border-t border-border/60 flex flex-col items-center gap-2">
           <p>
             <strong>Company Name:</strong> DoctorDesk |{" "}
-            <strong>Business Type:</strong> SaaS / IT Services |{" "}
-            <strong>Category:</strong> Appointment Booking & Practice Management
-            Software
+            <strong>Owner:</strong> Dr. Ankit Chourasiya |{" "}
+            <strong>Business Type:</strong> Individual / Proprietorship |{" "}
+            <strong>Service Type:</strong> SaaS / IT Services
           </p>
           <p>
-            <strong>Support:</strong> support@doctordesk.co.in
+            <strong>Support:</strong> doctordeskOfficial@gmail.com
           </p>
           <p className="mt-2">
             DoctorDesk is a technology platform and does not provide medical
