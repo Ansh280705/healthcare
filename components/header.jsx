@@ -270,18 +270,24 @@ const MobileMenu = ({ user }) => {
       <SheetContent side="left" className="w-[260px] px-5 pt-10">
         {/* Wallet balance - top of mobile menu */}
         {user && (
-          <div>
-            <div className="flex items-center gap-3 px-3 py-2 rounded-3xl bg-yellow-50 border border-yellow-200">
-              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-400/30">
-                <Wallet className="w-5 h-5 text-yellow-700" />
-              </div>
-              <div className="text-sm leading-tight">
-                <p className="text-yellow-700 font-medium">Wallet Balance</p>
-                <p className="font-semibold text-yellow-900">
-                  {creditsLoading ? "Loading..." : `${credits} credits`}
-                </p>
-              </div>
-            </div>
+          <div className="mb-4 flex items-center justify-center">
+            <SheetClose asChild>
+              <Link href="/pricing?showWallet=1" className="w-full">
+                <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-100 to-yellow-200 border border-yellow-300 shadow-sm">
+                  <div className="flex items-center justify-center w-9 h-9 rounded-full bg-yellow-400/30">
+                    <Wallet className="w-5 h-5 text-yellow-700" />
+                  </div>
+                  <div className="text-sm leading-tight">
+                    <p className="text-yellow-700 font-medium">
+                      Wallet Balance
+                    </p>
+                    <p className="font-semibold text-yellow-900">
+                      {creditsLoading ? "Loading..." : `${credits} credits`}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </SheetClose>
           </div>
         )}
 
