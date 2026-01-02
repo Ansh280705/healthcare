@@ -109,20 +109,22 @@ export function PendingPayouts({ payouts }) {
                             Dr. {payout.doctor.name}
                           </h3>
                           <p className="text-sm text-muted-foreground">
-                            {payout.doctor.specialty}
+                            {payout.doctor?.specialty || "—"}
                           </p>
                           <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-muted-foreground">
                             <div className="flex items-center">
                               <DollarSign className="h-4 w-4 mr-1 text-emerald-400" />
                               <span>
-                                {payout.credits} credits • ₹
-                                {payout.netAmount.toFixed(2)}
+                                {payout.credits ?? "—"} credits • ₹
+                                {payout.netAmount != null
+                                  ? payout.netAmount.toFixed(2)
+                                  : "—"}
                               </span>
                             </div>
                             <div className="flex items-center">
                               <Mail className="h-4 w-4 mr-1 text-emerald-400" />
                               <span className="text-xs">
-                                {payout.paypalEmail}
+                                {payout.paypalEmail || "—"}
                               </span>
                             </div>
                           </div>
@@ -196,21 +198,23 @@ export function PendingPayouts({ payouts }) {
                       Name
                     </p>
                     <p className="text-black">
-                      Dr. {selectedPayout.doctor.name}
+                      Dr. {selectedPayout.doctor?.name || "Unknown"}
                     </p>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">
                       Email
                     </p>
-                    <p className="text-black">{selectedPayout.doctor.email}</p>
+                    <p className="text-black">
+                      {selectedPayout.doctor?.email || "—"}
+                    </p>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">
                       Specialty
                     </p>
                     <p className="text-black">
-                      {selectedPayout.doctor.specialty}
+                      {selectedPayout.doctor?.specialty || "—"}
                     </p>
                   </div>
                   <div>
@@ -218,7 +222,7 @@ export function PendingPayouts({ payouts }) {
                       Current Credits
                     </p>
                     <p className="text-black">
-                      {selectedPayout.doctor.credits}
+                      {selectedPayout.doctor?.credits ?? "—"}
                     </p>
                   </div>
                 </div>
@@ -236,7 +240,7 @@ export function PendingPayouts({ payouts }) {
                       Credits to pay out:
                     </span>
                     <span className="text-black font-medium">
-                      {selectedPayout.credits}
+                      {selectedPayout.credits ?? "—"}
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -244,7 +248,9 @@ export function PendingPayouts({ payouts }) {
                       Gross amount (10 USD/credit):
                     </span>
                     <span className="text-black">
-                      ${selectedPayout.amount.toFixed(2)}
+                      {selectedPayout.amount != null
+                        ? `$${selectedPayout.amount.toFixed(2)}`
+                        : "—"}
                     </span>
                   </div>
                   <div className="flex justify-between">
@@ -252,33 +258,40 @@ export function PendingPayouts({ payouts }) {
                       Platform fee (2 USD/credit):
                     </span>
                     <span className="text-black">
-                      -${selectedPayout.platformFee.toFixed(2)}
+                      {selectedPayout.platformFee != null
+                        ? `-$${selectedPayout.platformFee.toFixed(2)}`
+                        : "—"}
                     </span>
                   </div>
                   <div className="border-t border-emerald-900/20 pt-3 flex justify-between font-medium">
                     <span className="text-black">Net payout:</span>
                     <span className="text-emerald-400">
-                      ${selectedPayout.netAmount.toFixed(2)}
+                      {selectedPayout.netAmount != null
+                        ? `$${selectedPayout.netAmount.toFixed(2)}`
+                        : "—"}
                     </span>
                   </div>
                   <div className="border-t border-emerald-900/20 pt-3">
                     <p className="text-sm font-medium text-muted-foreground">
                       PayPal Email
                     </p>
-                    <p className="text-black">{selectedPayout.paypalEmail}</p>
+                    <p className="text-black">
+                      {selectedPayout.paypalEmail || "—"}
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Warning if insufficient credits */}
-              {selectedPayout.doctor.credits < selectedPayout.credits && (
+              {(selectedPayout.doctor?.credits ?? 0) <
+                selectedPayout.credits && (
                 <Alert variant="destructive">
                   <AlertCircle className="h-4 w-4" />
                   <AlertDescription>
                     Warning: Doctor currently has only{" "}
-                    {selectedPayout.doctor.credits} credits but this payout
-                    requires {selectedPayout.credits} credits. The payout cannot
-                    be processed.
+                    {selectedPayout.doctor?.credits ?? 0} credits but this
+                    payout requires {selectedPayout.credits} credits. The payout
+                    cannot be processed.
                   </AlertDescription>
                 </Alert>
               )}
@@ -295,7 +308,7 @@ export function PendingPayouts({ payouts }) {
               <Button
                 onClick={() => handleApprovePayout(selectedPayout)}
                 disabled={
-                  selectedPayout.doctor.credits < selectedPayout.credits
+                  (selectedPayout.doctor?.credits ?? 0) < selectedPayout.credits
                 }
                 className="bg-emerald-600 hover:bg-emerald-700"
               >

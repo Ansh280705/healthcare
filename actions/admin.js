@@ -151,27 +151,55 @@ export async function getPendingPayouts() {
   if (!isAdmin) throw new Error("Unauthorized");
 
   try {
-    const pendingPayouts = await db.payout.findMany({
-      where: {
-        status: "PROCESSING",
-      },
-      include: {
-        doctor: {
-          select: {
-            id: true,
-            name: true,
-            email: true,
-            specialty: true,
-            credits: true,
+    try {
+      const pendingPayouts = await db.payout.findMany({
+        where: {
+          status: "PROCESSING",
+        },
+        include: {
+          doctor: {
+            select: {
+              id: true,
+              name: true,
+              email: true,
+              specialty: true,
+              credits: true,
+            },
           },
         },
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
 
-    return { payouts: pendingPayouts };
+      return { payouts: pendingPayouts };
+    } catch (innerError) {
+      // Handle missing column (P2022) or other schema mismatches by falling back
+      // to a safer query that selects only guaranteed columns from the doctor.
+      if (innerError?.code === "P2022") {
+        console.warn(
+          "Schema mismatch when fetching pending payouts, falling back to minimal doctor select",
+          innerError.meta || innerError.message
+        );
+
+        const pendingPayouts = await db.payout.findMany({
+          where: { status: "PROCESSING" },
+          include: {
+            doctor: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+          orderBy: { createdAt: "desc" },
+        });
+
+        return { payouts: pendingPayouts };
+      }
+
+      throw innerError;
+    }
   } catch (error) {
     console.error("Failed to fetch pending payouts:", error);
     throw new Error("Failed to fetch pending payouts");
