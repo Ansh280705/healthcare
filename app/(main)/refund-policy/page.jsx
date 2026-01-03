@@ -12,18 +12,47 @@ const RefundPage = () => {
       
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>
-          Refunds are applicable only for platform subscription or software usage issues.
+          At DoctorDesk, we strive to provide a seamless experience for our users. Since our 
+          services are digital SaaS tools, refunds and cancellations are governed by the 
+          following policy:
         </p>
 
-        <p>
-          DoctorDesk does not offer refunds for sessions scheduled or conducted with
-          independent professionals.
-        </p>
+        <section>
+          <h2 className="text-xl font-semibold text-foreground mb-2">Refund Timeline</h2>
+          <p>
+            Refund requests for platform subscription or software usage issues are processed 
+            within <strong>7-10 working days</strong> after approval. Approved refunds will 
+            be credited back to the original payment method used during the transaction.
+          </p>
+        </section>
 
-        <p>
-          If a user experiences a technical issue related to platform access, they may
-          contact support for review as per the refund policy.
-        </p>
+        <section>
+          <h2 className="text-xl font-semibold text-foreground mb-2">Cancellation Policy</h2>
+          <p>
+            Users can cancel their platform subscription at any time. However, cancellations 
+            made after the credits have been utilized or after the session has been 
+            conducted will not be eligible for a refund.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-foreground mb-2">Consultation Sessions</h2>
+          <p>
+            DoctorDesk is a technology platform and does not offer refunds for sessions 
+            scheduled or conducted with independent professionals. Any disputes regarding 
+            the quality of the session must be resolved directly with the professional.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-semibold text-foreground mb-2">Technical Issues</h2>
+          <p>
+            If a user experiences a technical issue related to platform access (e.g., system 
+            downtime or payment failure where credits were not assigned), they may contact 
+            support at <strong>doctordeskOfficial@gmail.com</strong> within 48 hours for 
+            review and resolution.
+          </p>
+        </section>
       </div>
     </div>
   );

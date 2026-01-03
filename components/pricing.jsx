@@ -14,9 +14,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const plans = [
-  { id: "BASIC", price: 300, credits: 1 },
-  { id: "STANDARD", price: 600, credits: 2, popular: true },
-  { id: "PREMIUM", price: 900, credits: 3 },
+  { id: "BASIC", price: 300, credits: 1, currency: "INR" },
+  { id: "STANDARD", price: 600, credits: 2, popular: true, currency: "INR" },
+  { id: "PREMIUM", price: 900, credits: 3, currency: "INR" },
 ];
 
 export default function Pricing() {
@@ -236,7 +236,7 @@ function PricingCard({ plan, isSignedIn, handleBuy, loading }) {
                 : "bg-[#6ba49f]/90 hover:bg-[#6ba49f]"
             }`}
           >
-            {loading === plan.id ? "Processing..." : "Buy Now"}
+        {loading === plan.id ? "Processing..." : `Buy Now - Total ₹${plan.price} ${plan.currency}`}
           </Button>
         ) : (
           <SignInButton
