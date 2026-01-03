@@ -228,6 +228,9 @@ export default function Footer() {
             <Link href="/terms-and-conditions" className="hover:text-client">
               Terms
             </Link>
+            <Link href="/shipping-and-delivery" className="hover:text-client">
+              Shipping
+            </Link>
             <Link href="/refund-policy" className="hover:text-client">
               Refunds
             </Link>

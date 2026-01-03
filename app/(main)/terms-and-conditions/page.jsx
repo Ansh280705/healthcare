@@ -28,6 +28,23 @@ const TermsPage = () => {
           conducted by independent professionals.
         </p>
 
+        <section className="bg-destructive/5 border border-destructive/20 p-6 rounded-lg mt-8">
+            <h3 className="font-semibold text-foreground mb-3">Prohibited Use</h3>
+            <p className="text-sm mb-3">
+              Users and professionals agree not to use the platform for any of the following prohibited activities:
+            </p>
+            <ul className="grid md:grid-cols-2 gap-x-4 gap-y-1 text-xs list-disc pl-5">
+              <li>Adult goods and services or sexually explicit material</li>
+              <li>Sale of alcohol, tobacco, or drugs</li>
+              <li>Weapons, ammunition, or hazardous materials</li>
+              <li>Financial schemes (Ponzi, Pyramid, Cryptocurrency trading)</li>
+              <li>Fake IDs, government documents, or impersonation</li>
+              <li>Illegal hacking/cracking materials</li>
+              <li>Gambling or miracle cures</li>
+              <li>Any activity violating Indian or international laws</li>
+            </ul>
+        </section>
+
         <div className="bg-muted/40 p-6 rounded-lg border border-border/50 mt-8">
             <h3 className="font-semibold text-foreground mb-2">Disclaimer</h3>
             <p className="text-sm">
