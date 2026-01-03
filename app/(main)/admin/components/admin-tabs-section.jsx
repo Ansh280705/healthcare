@@ -1,12 +1,21 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AlertCircle, Users, CreditCard, BookOpen, FlaskConical } from "lucide-react";
 
 export function AdminTabsSection({ children }) {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState("pending");
+
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
 
   const triggers = [
     { value: "pending", label: "Pending Verification", icon: AlertCircle },
@@ -22,7 +31,7 @@ export function AdminTabsSection({ children }) {
       onValueChange={setActiveTab} 
       className="grid grid-cols-1 md:grid-cols-4 gap-6"
     >
-      <TabsList className="md:col-span-1 bg-card border-client border-2 flex flex-row md:flex-col w-full h-auto p-1.5 rounded-md md:space-y-1 gap-1 md:gap-0 md:space-x-0 overflow-x-auto md:overflow-x-hidden overflow-y-hidden relative justify-start items-center md:items-stretch scrollbar-thin scrollbar-thumb-client/20">
+      <TabsList className="md:col-span-1 bg-card border-client border-2 flex flex-row md:flex-col w-full h-fit md:self-start p-1.5 rounded-md md:space-y-1 gap-1 md:gap-0 md:space-x-0 overflow-x-auto md:overflow-x-hidden overflow-y-hidden relative justify-start items-center md:items-stretch scrollbar-thin scrollbar-thumb-client/20">
         {triggers.map((trigger) => {
           const Icon = trigger.icon;
           
