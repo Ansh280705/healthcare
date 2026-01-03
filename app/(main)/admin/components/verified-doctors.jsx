@@ -102,7 +102,7 @@ export function VerifiedDoctors({ doctors }) {
                 return (
                   <Card
                     key={doctor.id}
-                    className="bg-background border-emerald-900/20 hover:border-emerald-700/30 transition-all"
+                    className="bg-card border-client border-2  hover:border-client/30 transition-all"
                   >
                     <CardContent className="p-4">
                       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
