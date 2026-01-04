@@ -222,7 +222,7 @@ export default function Footer() {
       <div>
         <div className="container mx-auto px-6 lg:px-20 border-t border-border/60 py-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <span>🟢 All systems operational</span>
-          <span>© {new Date().getFullYear()} DoctorDesk</span>
+      
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="hover:text-client">
               Privacy-Policy
@@ -242,6 +242,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="container mx-auto px-6 lg:px-20 py-4 text-xs text-muted-foreground text-center border-t border-border/60 flex flex-col items-center gap-2">
+            <span>© {new Date().getFullYear()} DoctorDesk</span>
           <p>
             <strong>Company Name:</strong> DoctorDesk | <strong>Owner:</strong>{" "}
             Dr. Ankit Chourasiya | <strong>Business Type:</strong> Individual /
