@@ -8,7 +8,8 @@ export default function LegalInformationPage() {
         <div className="text-center mb-14">
           <h1 className="text-4xl font-bold">Legal Information</h1>
           <p className="text-muted-foreground mt-2 max-w-xl mx-auto">
-            Official company details and registration information for DoctorDesk.
+            Official company details and registration information for
+            DoctorDesk.
           </p>
         </div>
 
@@ -32,19 +33,24 @@ export default function LegalInformationPage() {
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
                     Owner Name
                   </h4>
-                  <p className="text-muted-foreground mt-1">Dr. Ankit Chourasiya</p>
+                  {/* <p className="text-muted-foreground mt-1">Dr. Ankit Chourasiya</p> */}
+                  <p className="text-muted-foreground mt-1">Abhiraj Jaiswal</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
                     Business Type
                   </h4>
-                  <p className="text-muted-foreground mt-1">Individual / Proprietorship</p>
+                  <p className="text-muted-foreground mt-1">
+                    Individual / Proprietorship
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
                     Service Type
                   </h4>
-                  <p className="text-muted-foreground mt-1">SaaS / IT Services</p>
+                  <p className="text-muted-foreground mt-1">
+                    SaaS / IT Services
+                  </p>
                 </div>
               </div>
 
@@ -53,13 +59,17 @@ export default function LegalInformationPage() {
                   <MapPin className="h-5 w-5 text-client" />
                   Registered Address
                 </h4>
-                <p className="text-muted-foreground">
+                {/* <p className="text-muted-foreground">
                First Floor, Plot No. 17,<br />
 Above New Globas Medical,<br />
 Opposite Satish Kirana,<br />
 Gori Nagar, New Gouri Nagar,<br />
 Sukhliya, Indore,<br />
 Madhya Pradesh – 452010
+                </p> */}
+                <p className="text-muted-foreground">
+                  513, Vynaktesh Vihar Chota Bangarda Road Indore, Madhya
+                  Pradesh – 452005 India
                 </p>
               </div>
 
@@ -70,21 +80,24 @@ Madhya Pradesh – 452010
                     Contact Email
                   </h4>
                   <p className="text-client">doctordeskOfficial@gmail.com</p>
+                  <p className="text-client">Abhirajjaiswal500@gmail.com</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground flex items-center gap-2 mb-2">
                     <Phone className="h-5 w-5 text-client" />
                     Contact Phone Number
                   </h4>
-                  <p className="text-client">+91 81094-24356</p>
+                  <p className="text-client">+91 79871-09645</p>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
+
           <div className="mt-10 text-center text-sm text-muted-foreground">
             <p>
-              DoctorDesk is a technology platform and does not provide medical consultation, diagnosis, treatment, or prescriptions. All services are provided independently by professionals using the platform.
+              DoctorDesk is a technology platform and does not provide medical
+              consultation, diagnosis, treatment, or prescriptions. All services
+              are provided independently by professionals using the platform.
             </p>
           </div>
         </div>

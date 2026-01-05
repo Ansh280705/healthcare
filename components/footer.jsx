@@ -86,14 +86,17 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-client shrink-0 mt-0.5" />
                 <p>
-                  First Floor, Plot No. 17, Above New Globas Medical, Opposite
+                  {/* First Floor, Plot No. 17, Above New Globas Medical, Opposite
                   Satish Kirana, Gori Nagar, New Gouri Nagar, Sukhliya, Indore,
-                  Madhya Pradesh – 452010
+                  Madhya Pradesh – 452010 */}
+                  513, Vynaktesh Vihar Chota Bangarda Road <br /> Indore, Madhya
+                  Pradesh – 452005 <br /> India
                 </p>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-client shrink-0" />
-                <p>+91 81094-24356</p>
+                {/* <p>+91 81094-24356</p> */}
+                <p>+91 7987109645</p>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-client shrink-0" />
@@ -222,7 +225,7 @@ export default function Footer() {
       <div>
         <div className="container mx-auto px-6 lg:px-20 border-t border-border/60 py-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground">
           <span>🟢 All systems operational</span>
-      
+
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="hover:text-client">
               Privacy-Policy
@@ -237,15 +240,15 @@ export default function Footer() {
               Cancellation
             </Link>
             <Link href="/refund-policy" className="hover:text-client">
-             Returns & Refunds 
+              Returns & Refunds
             </Link>
           </div>
         </div>
         <div className="container mx-auto px-6 lg:px-20 py-4 text-xs text-muted-foreground text-center border-t border-border/60 flex flex-col items-center gap-2">
-            <span>© {new Date().getFullYear()} DoctorDesk</span>
+          <span>© {new Date().getFullYear()} DoctorDesk</span>
           <p>
             <strong>Company Name:</strong> DoctorDesk | <strong>Owner:</strong>{" "}
-            Dr. Ankit Chourasiya | <strong>Business Type:</strong> Individual /
+            Abhiraj Jaiswal | <strong>Business Type:</strong> Individual /
             Proprietorship | <strong>Service Type:</strong> SaaS / IT Services
           </p>
           <p>
