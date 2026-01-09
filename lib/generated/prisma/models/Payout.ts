@@ -48,8 +48,9 @@ export type PayoutMinAggregateOutputType = {
   platformFee: number | null
   netAmount: number | null
   paypalEmail: string | null
-  status: $Enums.PayoutStatus | null
   razorpayPaymentId: string | null
+  status: $Enums.PayoutStatus | null
+  paymentId: string | null
   createdAt: Date | null
   updatedAt: Date | null
   processedAt: Date | null
@@ -64,8 +65,9 @@ export type PayoutMaxAggregateOutputType = {
   platformFee: number | null
   netAmount: number | null
   paypalEmail: string | null
-  status: $Enums.PayoutStatus | null
   razorpayPaymentId: string | null
+  status: $Enums.PayoutStatus | null
+  paymentId: string | null
   createdAt: Date | null
   updatedAt: Date | null
   processedAt: Date | null
@@ -80,8 +82,9 @@ export type PayoutCountAggregateOutputType = {
   platformFee: number
   netAmount: number
   paypalEmail: number
-  status: number
   razorpayPaymentId: number
+  status: number
+  paymentId: number
   createdAt: number
   updatedAt: number
   processedAt: number
@@ -112,8 +115,9 @@ export type PayoutMinAggregateInputType = {
   platformFee?: true
   netAmount?: true
   paypalEmail?: true
-  status?: true
   razorpayPaymentId?: true
+  status?: true
+  paymentId?: true
   createdAt?: true
   updatedAt?: true
   processedAt?: true
@@ -128,8 +132,9 @@ export type PayoutMaxAggregateInputType = {
   platformFee?: true
   netAmount?: true
   paypalEmail?: true
-  status?: true
   razorpayPaymentId?: true
+  status?: true
+  paymentId?: true
   createdAt?: true
   updatedAt?: true
   processedAt?: true
@@ -144,8 +149,9 @@ export type PayoutCountAggregateInputType = {
   platformFee?: true
   netAmount?: true
   paypalEmail?: true
-  status?: true
   razorpayPaymentId?: true
+  status?: true
+  paymentId?: true
   createdAt?: true
   updatedAt?: true
   processedAt?: true
@@ -247,8 +253,9 @@ export type PayoutGroupByOutputType = {
   platformFee: number
   netAmount: number
   paypalEmail: string
-  status: $Enums.PayoutStatus
   razorpayPaymentId: string | null
+  status: $Enums.PayoutStatus
+  paymentId: string | null
   createdAt: Date
   updatedAt: Date
   processedAt: Date | null
@@ -286,8 +293,9 @@ export type PayoutWhereInput = {
   platformFee?: Prisma.FloatFilter<"Payout"> | number
   netAmount?: Prisma.FloatFilter<"Payout"> | number
   paypalEmail?: Prisma.StringFilter<"Payout"> | string
-  status?: Prisma.EnumPayoutStatusFilter<"Payout"> | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.StringNullableFilter<"Payout"> | string | null
+  status?: Prisma.EnumPayoutStatusFilter<"Payout"> | $Enums.PayoutStatus
+  paymentId?: Prisma.StringNullableFilter<"Payout"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Payout"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Payout"> | Date | string
   processedAt?: Prisma.DateTimeNullableFilter<"Payout"> | Date | string | null
@@ -303,8 +311,9 @@ export type PayoutOrderByWithRelationInput = {
   platformFee?: Prisma.SortOrder
   netAmount?: Prisma.SortOrder
   paypalEmail?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   razorpayPaymentId?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
+  paymentId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -323,8 +332,9 @@ export type PayoutWhereUniqueInput = Prisma.AtLeast<{
   platformFee?: Prisma.FloatFilter<"Payout"> | number
   netAmount?: Prisma.FloatFilter<"Payout"> | number
   paypalEmail?: Prisma.StringFilter<"Payout"> | string
-  status?: Prisma.EnumPayoutStatusFilter<"Payout"> | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.StringNullableFilter<"Payout"> | string | null
+  status?: Prisma.EnumPayoutStatusFilter<"Payout"> | $Enums.PayoutStatus
+  paymentId?: Prisma.StringNullableFilter<"Payout"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Payout"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Payout"> | Date | string
   processedAt?: Prisma.DateTimeNullableFilter<"Payout"> | Date | string | null
@@ -340,8 +350,9 @@ export type PayoutOrderByWithAggregationInput = {
   platformFee?: Prisma.SortOrder
   netAmount?: Prisma.SortOrder
   paypalEmail?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   razorpayPaymentId?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
+  paymentId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   processedAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -364,8 +375,9 @@ export type PayoutScalarWhereWithAggregatesInput = {
   platformFee?: Prisma.FloatWithAggregatesFilter<"Payout"> | number
   netAmount?: Prisma.FloatWithAggregatesFilter<"Payout"> | number
   paypalEmail?: Prisma.StringWithAggregatesFilter<"Payout"> | string
-  status?: Prisma.EnumPayoutStatusWithAggregatesFilter<"Payout"> | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.StringNullableWithAggregatesFilter<"Payout"> | string | null
+  status?: Prisma.EnumPayoutStatusWithAggregatesFilter<"Payout"> | $Enums.PayoutStatus
+  paymentId?: Prisma.StringNullableWithAggregatesFilter<"Payout"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Payout"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Payout"> | Date | string
   processedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Payout"> | Date | string | null
@@ -379,8 +391,9 @@ export type PayoutCreateInput = {
   platformFee: number
   netAmount: number
   paypalEmail: string
-  status?: $Enums.PayoutStatus
   razorpayPaymentId?: string | null
+  status?: $Enums.PayoutStatus
+  paymentId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   processedAt?: Date | string | null
@@ -396,8 +409,9 @@ export type PayoutUncheckedCreateInput = {
   platformFee: number
   netAmount: number
   paypalEmail: string
-  status?: $Enums.PayoutStatus
   razorpayPaymentId?: string | null
+  status?: $Enums.PayoutStatus
+  paymentId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   processedAt?: Date | string | null
@@ -411,8 +425,9 @@ export type PayoutUpdateInput = {
   platformFee?: Prisma.FloatFieldUpdateOperationsInput | number
   netAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   paypalEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -428,8 +443,9 @@ export type PayoutUncheckedUpdateInput = {
   platformFee?: Prisma.FloatFieldUpdateOperationsInput | number
   netAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   paypalEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -444,8 +460,9 @@ export type PayoutCreateManyInput = {
   platformFee: number
   netAmount: number
   paypalEmail: string
-  status?: $Enums.PayoutStatus
   razorpayPaymentId?: string | null
+  status?: $Enums.PayoutStatus
+  paymentId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   processedAt?: Date | string | null
@@ -459,8 +476,9 @@ export type PayoutUpdateManyMutationInput = {
   platformFee?: Prisma.FloatFieldUpdateOperationsInput | number
   netAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   paypalEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -475,8 +493,9 @@ export type PayoutUncheckedUpdateManyInput = {
   platformFee?: Prisma.FloatFieldUpdateOperationsInput | number
   netAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   paypalEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -501,8 +520,9 @@ export type PayoutCountOrderByAggregateInput = {
   platformFee?: Prisma.SortOrder
   netAmount?: Prisma.SortOrder
   paypalEmail?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   razorpayPaymentId?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  paymentId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
@@ -524,8 +544,9 @@ export type PayoutMaxOrderByAggregateInput = {
   platformFee?: Prisma.SortOrder
   netAmount?: Prisma.SortOrder
   paypalEmail?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   razorpayPaymentId?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  paymentId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
@@ -540,8 +561,9 @@ export type PayoutMinOrderByAggregateInput = {
   platformFee?: Prisma.SortOrder
   netAmount?: Prisma.SortOrder
   paypalEmail?: Prisma.SortOrder
-  status?: Prisma.SortOrder
   razorpayPaymentId?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  paymentId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   processedAt?: Prisma.SortOrder
@@ -620,8 +642,9 @@ export type PayoutCreateWithoutDoctorInput = {
   platformFee: number
   netAmount: number
   paypalEmail: string
-  status?: $Enums.PayoutStatus
   razorpayPaymentId?: string | null
+  status?: $Enums.PayoutStatus
+  paymentId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   processedAt?: Date | string | null
@@ -635,8 +658,9 @@ export type PayoutUncheckedCreateWithoutDoctorInput = {
   platformFee: number
   netAmount: number
   paypalEmail: string
-  status?: $Enums.PayoutStatus
   razorpayPaymentId?: string | null
+  status?: $Enums.PayoutStatus
+  paymentId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   processedAt?: Date | string | null
@@ -680,8 +704,9 @@ export type PayoutScalarWhereInput = {
   platformFee?: Prisma.FloatFilter<"Payout"> | number
   netAmount?: Prisma.FloatFilter<"Payout"> | number
   paypalEmail?: Prisma.StringFilter<"Payout"> | string
-  status?: Prisma.EnumPayoutStatusFilter<"Payout"> | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.StringNullableFilter<"Payout"> | string | null
+  status?: Prisma.EnumPayoutStatusFilter<"Payout"> | $Enums.PayoutStatus
+  paymentId?: Prisma.StringNullableFilter<"Payout"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Payout"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Payout"> | Date | string
   processedAt?: Prisma.DateTimeNullableFilter<"Payout"> | Date | string | null
@@ -695,8 +720,9 @@ export type PayoutCreateManyDoctorInput = {
   platformFee: number
   netAmount: number
   paypalEmail: string
-  status?: $Enums.PayoutStatus
   razorpayPaymentId?: string | null
+  status?: $Enums.PayoutStatus
+  paymentId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   processedAt?: Date | string | null
@@ -710,8 +736,9 @@ export type PayoutUpdateWithoutDoctorInput = {
   platformFee?: Prisma.FloatFieldUpdateOperationsInput | number
   netAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   paypalEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -725,8 +752,9 @@ export type PayoutUncheckedUpdateWithoutDoctorInput = {
   platformFee?: Prisma.FloatFieldUpdateOperationsInput | number
   netAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   paypalEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -740,8 +768,9 @@ export type PayoutUncheckedUpdateManyWithoutDoctorInput = {
   platformFee?: Prisma.FloatFieldUpdateOperationsInput | number
   netAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   paypalEmail?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
   razorpayPaymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPayoutStatusFieldUpdateOperationsInput | $Enums.PayoutStatus
+  paymentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   processedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -758,8 +787,9 @@ export type PayoutSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   platformFee?: boolean
   netAmount?: boolean
   paypalEmail?: boolean
-  status?: boolean
   razorpayPaymentId?: boolean
+  status?: boolean
+  paymentId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   processedAt?: boolean
@@ -775,8 +805,9 @@ export type PayoutSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   platformFee?: boolean
   netAmount?: boolean
   paypalEmail?: boolean
-  status?: boolean
   razorpayPaymentId?: boolean
+  status?: boolean
+  paymentId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   processedAt?: boolean
@@ -792,8 +823,9 @@ export type PayoutSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   platformFee?: boolean
   netAmount?: boolean
   paypalEmail?: boolean
-  status?: boolean
   razorpayPaymentId?: boolean
+  status?: boolean
+  paymentId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   processedAt?: boolean
@@ -809,15 +841,16 @@ export type PayoutSelectScalar = {
   platformFee?: boolean
   netAmount?: boolean
   paypalEmail?: boolean
-  status?: boolean
   razorpayPaymentId?: boolean
+  status?: boolean
+  paymentId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   processedAt?: boolean
   processedBy?: boolean
 }
 
-export type PayoutOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "doctorId" | "amount" | "credits" | "platformFee" | "netAmount" | "paypalEmail" | "status" | "razorpayPaymentId" | "createdAt" | "updatedAt" | "processedAt" | "processedBy", ExtArgs["result"]["payout"]>
+export type PayoutOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "doctorId" | "amount" | "credits" | "platformFee" | "netAmount" | "paypalEmail" | "razorpayPaymentId" | "status" | "paymentId" | "createdAt" | "updatedAt" | "processedAt" | "processedBy", ExtArgs["result"]["payout"]>
 export type PayoutInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   doctor?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -841,8 +874,9 @@ export type $PayoutPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     platformFee: number
     netAmount: number
     paypalEmail: string
-    status: $Enums.PayoutStatus
     razorpayPaymentId: string | null
+    status: $Enums.PayoutStatus
+    paymentId: string | null
     createdAt: Date
     updatedAt: Date
     processedAt: Date | null
@@ -1278,8 +1312,9 @@ export interface PayoutFieldRefs {
   readonly platformFee: Prisma.FieldRef<"Payout", 'Float'>
   readonly netAmount: Prisma.FieldRef<"Payout", 'Float'>
   readonly paypalEmail: Prisma.FieldRef<"Payout", 'String'>
-  readonly status: Prisma.FieldRef<"Payout", 'PayoutStatus'>
   readonly razorpayPaymentId: Prisma.FieldRef<"Payout", 'String'>
+  readonly status: Prisma.FieldRef<"Payout", 'PayoutStatus'>
+  readonly paymentId: Prisma.FieldRef<"Payout", 'String'>
   readonly createdAt: Prisma.FieldRef<"Payout", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Payout", 'DateTime'>
   readonly processedAt: Prisma.FieldRef<"Payout", 'DateTime'>
