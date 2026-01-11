@@ -25,11 +25,11 @@ export const metadata = {
     icon: [
       {
         url: "/favicon-light.png",
-        media: "(prefers-color-scheme: dark)",
+        media: "(prefers-color-scheme:dark)",
       },
       {
         url: "/favicon-dark.png",
-        media: "(prefers-color-scheme: light)",
+        media: "(prefers-color-scheme:light)",
       },
     ],
     shortcut: [
@@ -39,7 +39,7 @@ export const metadata = {
       },
       {
         url: "/favicon-dark.png",
-        media: "(prefers-color-scheme: dark)",
+        media: "(prefers-color-scheme:dark)",
       },
     ],
     apple: [
