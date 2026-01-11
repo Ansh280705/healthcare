@@ -254,11 +254,11 @@ export default function Footer() {
           <p>
             <strong>Support:</strong> doctordeskOfficial@gmail.com
           </p>
-          <p className="mt-2">
+          {/* <p className="mt-2">
             DoctorDesk is a technology platform and does not provide medical
             consultation, diagnosis, treatment, or prescriptions. All services
             are provided independently by professionals using the platform.
-          </p>
+          </p> */}
         </div>
       </div>
       {modal && (

@@ -40,15 +40,16 @@ export default function Home() {
               className="bg-client border-2 border-[#4b736f] 
               px-4 py-1 text-sm sm:text-base text-white mb-1 w-max mx-auto md:mx-0"
             >
-          Smart Appointment Booking 
+     HealthCare Made Simple
             </Badge>
 
             <h1
               className="text-xl sm:text-4xl md:text-4xl lg:text-5xl
                leading-tight font-bold"
             >
-              Schedule with Top Professionals
-              <br /> Online
+             Consult India's Top Doctors
+Online
+             
             </h1>
 
             <div className="mt-3 min-h-[40px]">
