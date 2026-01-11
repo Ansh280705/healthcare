@@ -38,7 +38,6 @@
     "framer-motion": "^12.23.26",
     "html2canvas": "^1.4.1",
     "input": "^1.0.1",
-    "js-sha512": "^0.9.0",
     "jspdf": "^3.0.4",
     "label": "^0.2.2",
     "lucide-react": "^0.555.0",

@@ -86,17 +86,17 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-client shrink-0 mt-0.5" />
                 <p>
-                  {/* First Floor, Plot No. 17, Above New Globas Medical, Opposite
+                  First Floor, Plot No. 17, Above New Globas Medical, Opposite
                   Satish Kirana, Gori Nagar, New Gouri Nagar, Sukhliya, Indore,
-                  Madhya Pradesh – 452010 */}
-                  513, Vynaktesh Vihar Chota Bangarda Road <br /> Indore, Madhya
-                  Pradesh – 452005 <br /> India
+                  Madhya Pradesh – 452010
+                  {/* 513, Vynaktesh Vihar Chota Bangarda Road <br /> Indore, Madhya
+                  Pradesh – 452005 <br /> India */}
                 </p>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-client shrink-0" />
-                {/* <p>+91 81094-24356</p> */}
-                <p>+91 7987109645</p>
+                <p>+91 81094-24356</p>
+                {/* <p>+91 7987109645</p> */}
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-client shrink-0" />
@@ -248,7 +248,7 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} DoctorDesk</span>
           <p>
             <strong>Company Name:</strong> DoctorDesk | <strong>Owner:</strong>{" "}
-            Abhiraj Jaiswal | <strong>Business Type:</strong> Individual /
+        Dr. Ankit Chourasiya | <strong>Business Type:</strong> Individual /
             Proprietorship | <strong>Service Type:</strong> SaaS / IT Services
           </p>
           <p>

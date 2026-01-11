@@ -241,7 +241,7 @@ model PaymentRequest {
   transactionId String?
   paymentMethod String?
   packageId     String?
-  isNotified     Boolean       @default(false)
+  isNotified    Boolean       @default(false)
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
   processedAt   DateTime?

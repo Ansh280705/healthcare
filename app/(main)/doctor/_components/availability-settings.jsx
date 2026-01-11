@@ -1,12 +1,13 @@
-"use client"
-import { setAvailabilitySlots } from '@/actions/doctor';
+"use client";
+
+import { deleteAvailability, setAvailabilitySlots } from '@/actions/doctor';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import useFetch from '@/hooks/use-fetch';
 import { format } from 'date-fns';
-import { AlertCircle, Clock, Loader2, Plus } from 'lucide-react';
+import { AlertCircle, Clock, Loader2, Plus, Trash2 } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -14,13 +15,15 @@ import { toast } from 'sonner';
 const AvailabilitySettings = ({slots}) => {
     const [showForm, setShowForm] = useState(false);
 
-  // Custom hook for server action
+  // Custom hook for server actions
   const { loading, fn: submitSlots, data } = useFetch(setAvailabilitySlots);
+  const { loading: deleting, fn: removeSlot } = useFetch(deleteAvailability);
 
   // React Hook Form
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -49,8 +52,6 @@ const AvailabilitySettings = ({slots}) => {
 
     const formData = new FormData();
 
-    const today = new Date().toISOString().split("T")[0];
-
     // Create date objects
     const startDate = createLocalDateFromTime(data.startTime);
     const endDate = createLocalDateFromTime(data.endTime);
@@ -67,12 +68,29 @@ const AvailabilitySettings = ({slots}) => {
     await submitSlots(formData);
   };
 
+  const handleDelete = async (id) => {
+    toast("Delete this time slot?", {
+        action: {
+          label: "Remove",
+          onClick: async () => {
+              try {
+                  await removeSlot(id);
+                  toast.success("Time slot removed");
+              } catch (error) {
+                  toast.error("Failed to remove slot");
+              }
+          },
+        },
+    });
+  };
+
   useEffect(() => {
     if (data && data?.success) {
       setShowForm(false);
-      toast.success("Availability slots updated successfully");
+      reset();
+      toast.success("Availability slot added successfully");
     }
-  }, [data]);
+  }, [data, reset]);
 
   // Format time string for display
   const formatTimeString = (dateString) => {
@@ -113,20 +131,34 @@ const AvailabilitySettings = ({slots}) => {
                   {slots.map((slot) => (
                     <div
                       key={slot.id}
-                      className="flex items-center p-3 rounded-md bg-muted/20 border border-emerald-900/20"
+                      className="flex items-center justify-between p-3 rounded-md bg-muted/20 border border-emerald-900/20"
                     >
-                      <div className=" p-2 rounded-full mr-3">
-                        <Clock className="h-4 w-4 text-client" />
+                      <div className="flex items-center">
+                        <div className=" p-2 rounded-full mr-3">
+                            <Clock className="h-4 w-4 text-client" />
+                        </div>
+                        <div>
+                            <p className="text-black font-medium">
+                            {formatTimeString(slot.startTime)} -{" "}
+                            {formatTimeString(slot.endTime)}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                            {slot.status === "BOOKED" ? "Booked" : "Available"}
+                            </p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-black font-medium">
-                          {formatTimeString(slot.startTime)} -{" "}
-                          {formatTimeString(slot.endTime)}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {slot.appointment ? "Booked" : "Available"}
-                        </p>
-                      </div>
+                      
+                      {slot.status === "AVAILABLE" && (
+                        <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                            onClick={() => handleDelete(slot.id)}
+                            disabled={deleting}
+                        >
+                            <Trash2 className="h-4 w-4" />
+                        </Button>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -138,7 +170,7 @@ const AvailabilitySettings = ({slots}) => {
               className="w-full bg-client hover:bg-emerald-700"
             >
               <Plus className="h-4 w-4 mr-2" />
-              Set Availability Time
+              Add Availability Time
             </Button>
           </>
         ) : (

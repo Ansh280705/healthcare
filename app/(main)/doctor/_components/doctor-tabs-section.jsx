@@ -1,14 +1,15 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AlertCircle, Users, CreditCard, BookOpen, FlaskConical, Wallet } from "lucide-react";
+import { Calendar, Clock, DollarSign } from "lucide-react";
 
-export function AdminTabsSection({ children }) {
+export function DoctorTabsSection({ children }) {
   const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState("pending");
+  const router = useRouter();
+  const [activeTab, setActiveTab] = useState("earnings");
 
   useEffect(() => {
     const tab = searchParams.get("tab");
@@ -17,19 +18,23 @@ export function AdminTabsSection({ children }) {
     }
   }, [searchParams]);
 
+  const handleTabChange = (value) => {
+    setActiveTab(value);
+    const params = new URLSearchParams(searchParams);
+    params.set("tab", value);
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
+
   const triggers = [
-    { value: "pending", label: "Pending Verification", icon: AlertCircle },
-    { value: "doctors", label: "Doctors", icon: Users },
-    { value: "payouts", label: "Payouts", icon: CreditCard },
-    { value: "payment-requests", label: "Payments", icon: Wallet },
-    { value: "blogs", label: "Blogs", icon: BookOpen },
-    { value: "labs", label: "Labs", icon: FlaskConical },
+    { value: "earnings", label: "Earnings", icon: DollarSign },
+    { value: "sessions", label: "Sessions", icon: Calendar },
+    { value: "availability", label: "Availability", icon: Clock },
   ];
 
   return (
     <Tabs 
       value={activeTab} 
-      onValueChange={setActiveTab} 
+      onValueChange={handleTabChange} 
       className="grid grid-cols-1 md:grid-cols-4 gap-6"
     >
       <TabsList className="md:col-span-1 bg-card border-client border-2 flex flex-row md:flex-col w-full h-fit md:self-start p-1.5 rounded-md md:space-y-1 gap-1 md:gap-0 md:space-x-0 overflow-x-auto md:overflow-x-hidden overflow-y-hidden relative justify-start items-center md:items-stretch scrollbar-thin scrollbar-thumb-client/20">
@@ -44,7 +49,7 @@ export function AdminTabsSection({ children }) {
             >
               {activeTab === trigger.value && (
                 <motion.div
-                  layoutId="active-tab-highlight"
+                  layoutId="doctor-active-tab-highlight"
                   className="absolute inset-0 bg-client rounded-[4px] -z-10"
                   transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                 />

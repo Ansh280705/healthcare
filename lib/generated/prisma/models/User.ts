@@ -309,6 +309,7 @@ export type UserWhereInput = {
   availabilities?: Prisma.AvailabilityListRelationFilter
   transactions?: Prisma.CreditTransactionListRelationFilter
   payouts?: Prisma.PayoutListRelationFilter
+  paymentRequests?: Prisma.PaymentRequestListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -333,6 +334,7 @@ export type UserOrderByWithRelationInput = {
   availabilities?: Prisma.AvailabilityOrderByRelationAggregateInput
   transactions?: Prisma.CreditTransactionOrderByRelationAggregateInput
   payouts?: Prisma.PayoutOrderByRelationAggregateInput
+  paymentRequests?: Prisma.PaymentRequestOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -360,6 +362,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   availabilities?: Prisma.AvailabilityListRelationFilter
   transactions?: Prisma.CreditTransactionListRelationFilter
   payouts?: Prisma.PayoutListRelationFilter
+  paymentRequests?: Prisma.PaymentRequestListRelationFilter
 }, "id" | "clerkUserId" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -430,6 +433,7 @@ export type UserCreateInput = {
   availabilities?: Prisma.AvailabilityCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -454,6 +458,7 @@ export type UserUncheckedCreateInput = {
   availabilities?: Prisma.AvailabilityUncheckedCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionUncheckedCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutUncheckedCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -478,6 +483,7 @@ export type UserUpdateInput = {
   availabilities?: Prisma.AvailabilityUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -502,6 +508,7 @@ export type UserUncheckedUpdateInput = {
   availabilities?: Prisma.AvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUncheckedUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -754,6 +761,20 @@ export type UserUpdateOneRequiredWithoutPayoutsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPayoutsInput, Prisma.UserUpdateWithoutPayoutsInput>, Prisma.UserUncheckedUpdateWithoutPayoutsInput>
 }
 
+export type UserCreateNestedOneWithoutPaymentRequestsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPaymentRequestsInput, Prisma.UserUncheckedCreateWithoutPaymentRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPaymentRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutPaymentRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutPaymentRequestsInput, Prisma.UserUncheckedCreateWithoutPaymentRequestsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPaymentRequestsInput
+  upsert?: Prisma.UserUpsertWithoutPaymentRequestsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutPaymentRequestsInput, Prisma.UserUpdateWithoutPaymentRequestsInput>, Prisma.UserUncheckedUpdateWithoutPaymentRequestsInput>
+}
+
 export type UserCreateWithoutAvailabilitiesInput = {
   id?: string
   clerkUserId: string
@@ -775,6 +796,7 @@ export type UserCreateWithoutAvailabilitiesInput = {
   doctorAppointments?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAvailabilitiesInput = {
@@ -798,6 +820,7 @@ export type UserUncheckedCreateWithoutAvailabilitiesInput = {
   doctorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionUncheckedCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutUncheckedCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAvailabilitiesInput = {
@@ -837,6 +860,7 @@ export type UserUpdateWithoutAvailabilitiesInput = {
   doctorAppointments?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAvailabilitiesInput = {
@@ -860,6 +884,7 @@ export type UserUncheckedUpdateWithoutAvailabilitiesInput = {
   doctorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUncheckedUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPatientAppointmentsInput = {
@@ -883,6 +908,7 @@ export type UserCreateWithoutPatientAppointmentsInput = {
   availabilities?: Prisma.AvailabilityCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPatientAppointmentsInput = {
@@ -906,6 +932,7 @@ export type UserUncheckedCreateWithoutPatientAppointmentsInput = {
   availabilities?: Prisma.AvailabilityUncheckedCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionUncheckedCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutUncheckedCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPatientAppointmentsInput = {
@@ -934,6 +961,7 @@ export type UserCreateWithoutDoctorAppointmentsInput = {
   availabilities?: Prisma.AvailabilityCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutDoctorAppointmentsInput = {
@@ -957,6 +985,7 @@ export type UserUncheckedCreateWithoutDoctorAppointmentsInput = {
   availabilities?: Prisma.AvailabilityUncheckedCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionUncheckedCreateNestedManyWithoutUserInput
   payouts?: Prisma.PayoutUncheckedCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutDoctorAppointmentsInput = {
@@ -996,6 +1025,7 @@ export type UserUpdateWithoutPatientAppointmentsInput = {
   availabilities?: Prisma.AvailabilityUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPatientAppointmentsInput = {
@@ -1019,6 +1049,7 @@ export type UserUncheckedUpdateWithoutPatientAppointmentsInput = {
   availabilities?: Prisma.AvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUncheckedUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserUpsertWithoutDoctorAppointmentsInput = {
@@ -1053,6 +1084,7 @@ export type UserUpdateWithoutDoctorAppointmentsInput = {
   availabilities?: Prisma.AvailabilityUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutDoctorAppointmentsInput = {
@@ -1076,6 +1108,7 @@ export type UserUncheckedUpdateWithoutDoctorAppointmentsInput = {
   availabilities?: Prisma.AvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUncheckedUpdateManyWithoutUserNestedInput
   payouts?: Prisma.PayoutUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutTransactionsInput = {
@@ -1099,6 +1132,7 @@ export type UserCreateWithoutTransactionsInput = {
   doctorAppointments?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
   availabilities?: Prisma.AvailabilityCreateNestedManyWithoutDoctorInput
   payouts?: Prisma.PayoutCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutTransactionsInput = {
@@ -1122,6 +1156,7 @@ export type UserUncheckedCreateWithoutTransactionsInput = {
   doctorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
   availabilities?: Prisma.AvailabilityUncheckedCreateNestedManyWithoutDoctorInput
   payouts?: Prisma.PayoutUncheckedCreateNestedManyWithoutDoctorInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutTransactionsInput = {
@@ -1161,6 +1196,7 @@ export type UserUpdateWithoutTransactionsInput = {
   doctorAppointments?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
   availabilities?: Prisma.AvailabilityUpdateManyWithoutDoctorNestedInput
   payouts?: Prisma.PayoutUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTransactionsInput = {
@@ -1184,6 +1220,7 @@ export type UserUncheckedUpdateWithoutTransactionsInput = {
   doctorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
   availabilities?: Prisma.AvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
   payouts?: Prisma.PayoutUncheckedUpdateManyWithoutDoctorNestedInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPayoutsInput = {
@@ -1207,6 +1244,7 @@ export type UserCreateWithoutPayoutsInput = {
   doctorAppointments?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
   availabilities?: Prisma.AvailabilityCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionCreateNestedManyWithoutUserInput
+  paymentRequests?: Prisma.PaymentRequestCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPayoutsInput = {
@@ -1230,6 +1268,7 @@ export type UserUncheckedCreateWithoutPayoutsInput = {
   doctorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
   availabilities?: Prisma.AvailabilityUncheckedCreateNestedManyWithoutDoctorInput
   transactions?: Prisma.CreditTransactionUncheckedCreateNestedManyWithoutUserInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPayoutsInput = {
@@ -1269,6 +1308,7 @@ export type UserUpdateWithoutPayoutsInput = {
   doctorAppointments?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
   availabilities?: Prisma.AvailabilityUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUpdateManyWithoutUserNestedInput
+  paymentRequests?: Prisma.PaymentRequestUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPayoutsInput = {
@@ -1292,6 +1332,119 @@ export type UserUncheckedUpdateWithoutPayoutsInput = {
   doctorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
   availabilities?: Prisma.AvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
   transactions?: Prisma.CreditTransactionUncheckedUpdateManyWithoutUserNestedInput
+  paymentRequests?: Prisma.PaymentRequestUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutPaymentRequestsInput = {
+  id?: string
+  clerkUserId: string
+  email: string
+  name?: string | null
+  phone?: string | null
+  imageUrl?: string | null
+  role?: $Enums.UserRole
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  credits?: number
+  specialty?: string | null
+  experience?: number | null
+  credentialUrl?: string | null
+  description?: string | null
+  verificationStatus?: $Enums.VerificationStatus | null
+  qualifications?: Prisma.UserCreatequalificationsInput | string[]
+  patientAppointments?: Prisma.AppointmentCreateNestedManyWithoutPatientInput
+  doctorAppointments?: Prisma.AppointmentCreateNestedManyWithoutDoctorInput
+  availabilities?: Prisma.AvailabilityCreateNestedManyWithoutDoctorInput
+  transactions?: Prisma.CreditTransactionCreateNestedManyWithoutUserInput
+  payouts?: Prisma.PayoutCreateNestedManyWithoutDoctorInput
+}
+
+export type UserUncheckedCreateWithoutPaymentRequestsInput = {
+  id?: string
+  clerkUserId: string
+  email: string
+  name?: string | null
+  phone?: string | null
+  imageUrl?: string | null
+  role?: $Enums.UserRole
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  credits?: number
+  specialty?: string | null
+  experience?: number | null
+  credentialUrl?: string | null
+  description?: string | null
+  verificationStatus?: $Enums.VerificationStatus | null
+  qualifications?: Prisma.UserCreatequalificationsInput | string[]
+  patientAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutPatientInput
+  doctorAppointments?: Prisma.AppointmentUncheckedCreateNestedManyWithoutDoctorInput
+  availabilities?: Prisma.AvailabilityUncheckedCreateNestedManyWithoutDoctorInput
+  transactions?: Prisma.CreditTransactionUncheckedCreateNestedManyWithoutUserInput
+  payouts?: Prisma.PayoutUncheckedCreateNestedManyWithoutDoctorInput
+}
+
+export type UserCreateOrConnectWithoutPaymentRequestsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutPaymentRequestsInput, Prisma.UserUncheckedCreateWithoutPaymentRequestsInput>
+}
+
+export type UserUpsertWithoutPaymentRequestsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutPaymentRequestsInput, Prisma.UserUncheckedUpdateWithoutPaymentRequestsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutPaymentRequestsInput, Prisma.UserUncheckedCreateWithoutPaymentRequestsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutPaymentRequestsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutPaymentRequestsInput, Prisma.UserUncheckedUpdateWithoutPaymentRequestsInput>
+}
+
+export type UserUpdateWithoutPaymentRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  clerkUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  credits?: Prisma.IntFieldUpdateOperationsInput | number
+  specialty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  credentialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verificationStatus?: Prisma.NullableEnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus | null
+  qualifications?: Prisma.UserUpdatequalificationsInput | string[]
+  patientAppointments?: Prisma.AppointmentUpdateManyWithoutPatientNestedInput
+  doctorAppointments?: Prisma.AppointmentUpdateManyWithoutDoctorNestedInput
+  availabilities?: Prisma.AvailabilityUpdateManyWithoutDoctorNestedInput
+  transactions?: Prisma.CreditTransactionUpdateManyWithoutUserNestedInput
+  payouts?: Prisma.PayoutUpdateManyWithoutDoctorNestedInput
+}
+
+export type UserUncheckedUpdateWithoutPaymentRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  clerkUserId?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  phone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  imageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  credits?: Prisma.IntFieldUpdateOperationsInput | number
+  specialty?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  experience?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  credentialUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  verificationStatus?: Prisma.NullableEnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus | null
+  qualifications?: Prisma.UserUpdatequalificationsInput | string[]
+  patientAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutPatientNestedInput
+  doctorAppointments?: Prisma.AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
+  availabilities?: Prisma.AvailabilityUncheckedUpdateManyWithoutDoctorNestedInput
+  transactions?: Prisma.CreditTransactionUncheckedUpdateManyWithoutUserNestedInput
+  payouts?: Prisma.PayoutUncheckedUpdateManyWithoutDoctorNestedInput
 }
 
 
@@ -1305,6 +1458,7 @@ export type UserCountOutputType = {
   availabilities: number
   transactions: number
   payouts: number
+  paymentRequests: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1313,6 +1467,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   availabilities?: boolean | UserCountOutputTypeCountAvailabilitiesArgs
   transactions?: boolean | UserCountOutputTypeCountTransactionsArgs
   payouts?: boolean | UserCountOutputTypeCountPayoutsArgs
+  paymentRequests?: boolean | UserCountOutputTypeCountPaymentRequestsArgs
 }
 
 /**
@@ -1360,6 +1515,13 @@ export type UserCountOutputTypeCountPayoutsArgs<ExtArgs extends runtime.Types.Ex
   where?: Prisma.PayoutWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPaymentRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PaymentRequestWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1383,6 +1545,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   availabilities?: boolean | Prisma.User$availabilitiesArgs<ExtArgs>
   transactions?: boolean | Prisma.User$transactionsArgs<ExtArgs>
   payouts?: boolean | Prisma.User$payoutsArgs<ExtArgs>
+  paymentRequests?: boolean | Prisma.User$paymentRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1450,6 +1613,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   availabilities?: boolean | Prisma.User$availabilitiesArgs<ExtArgs>
   transactions?: boolean | Prisma.User$transactionsArgs<ExtArgs>
   payouts?: boolean | Prisma.User$payoutsArgs<ExtArgs>
+  paymentRequests?: boolean | Prisma.User$paymentRequestsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1463,6 +1627,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     availabilities: Prisma.$AvailabilityPayload<ExtArgs>[]
     transactions: Prisma.$CreditTransactionPayload<ExtArgs>[]
     payouts: Prisma.$PayoutPayload<ExtArgs>[]
+    paymentRequests: Prisma.$PaymentRequestPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1880,6 +2045,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   availabilities<T extends Prisma.User$availabilitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$availabilitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AvailabilityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   transactions<T extends Prisma.User$transactionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$transactionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CreditTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   payouts<T extends Prisma.User$payoutsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$payoutsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PayoutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  paymentRequests<T extends Prisma.User$paymentRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$paymentRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2430,6 +2596,30 @@ export type User$payoutsArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
   take?: number
   skip?: number
   distinct?: Prisma.PayoutScalarFieldEnum | Prisma.PayoutScalarFieldEnum[]
+}
+
+/**
+ * User.paymentRequests
+ */
+export type User$paymentRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the PaymentRequest
+   */
+  select?: Prisma.PaymentRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the PaymentRequest
+   */
+  omit?: Prisma.PaymentRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PaymentRequestInclude<ExtArgs> | null
+  where?: Prisma.PaymentRequestWhereInput
+  orderBy?: Prisma.PaymentRequestOrderByWithRelationInput | Prisma.PaymentRequestOrderByWithRelationInput[]
+  cursor?: Prisma.PaymentRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PaymentRequestScalarFieldEnum | Prisma.PaymentRequestScalarFieldEnum[]
 }
 
 /**

@@ -33,8 +33,8 @@ export default function LegalInformationPage() {
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
                     Owner Name
                   </h4>
-                  {/* <p className="text-muted-foreground mt-1">Dr. Ankit Chourasiya</p> */}
-                  <p className="text-muted-foreground mt-1">Abhiraj Jaiswal</p>
+                  <p className="text-muted-foreground mt-1">Dr. Ankit Chourasiya</p>
+                  {/* <p className="text-muted-foreground mt-1">Abhiraj Jaiswal</p> */}
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
@@ -59,18 +59,18 @@ export default function LegalInformationPage() {
                   <MapPin className="h-5 w-5 text-client" />
                   Registered Address
                 </h4>
-                {/* <p className="text-muted-foreground">
+                <p className="text-muted-foreground">
                First Floor, Plot No. 17,<br />
 Above New Globas Medical,<br />
 Opposite Satish Kirana,<br />
 Gori Nagar, New Gouri Nagar,<br />
 Sukhliya, Indore,<br />
 Madhya Pradesh – 452010
-                </p> */}
-                <p className="text-muted-foreground">
+                </p>
+                {/* <p className="text-muted-foreground">
                   513, Vynaktesh Vihar Chota Bangarda Road Indore, Madhya
                   Pradesh – 452005 India
-                </p>
+                </p> */}
               </div>
 
               <div className="grid md:grid-cols-2 gap-6 border-t pt-6">
@@ -80,14 +80,15 @@ Madhya Pradesh – 452010
                     Contact Email
                   </h4>
                   <p className="text-client">doctordeskOfficial@gmail.com</p>
-                  <p className="text-client">Abhirajjaiswal500@gmail.com</p>
+                  {/* <p className="text-client">Abhirajjaiswal500@gmail.com</p> */}
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground flex items-center gap-2 mb-2">
                     <Phone className="h-5 w-5 text-client" />
                     Contact Phone Number
                   </h4>
-                  <p className="text-client">+91 79871-09645</p>
+                  {/* <p className="text-client">+91 79871-09645</p> */}
+                  <p className="text-client">+91 81094-24356</p>
                 </div>
               </div>
             </CardContent>

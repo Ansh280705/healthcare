@@ -1,28 +1,30 @@
-// app/(main)/admin/page.jsx
 import {
   getPendingDoctors,
   getVerifiedDoctors,
   getPendingPayouts,
   getAllBlogs,
 } from "@/actions/admin";
+import { getPaymentRequests } from "@/actions/payment";
 import { TabsContent } from "@radix-ui/react-tabs";
 import { PendingDoctors } from "./components/pending-doctors";
 import { VerifiedDoctors } from "./components/verified-doctors";
 import { PendingPayouts } from "./components/pending-payouts";
 import { AdminBlogs } from "./components/admin-blogs";
 import { LabsManager } from "./components/labs-manager";
+import { PaymentRequests } from "./components/payment-requests";
 import { getLabs } from "@/actions/labs";
 
 import { TabAnimatedContent } from "./components/tab-animated-content";
 
 export default async function AdminPage() {
-  const [pendingDoctorsData, verifiedDoctorsData, pendingPayoutsData, blogsData,labsData] =
+  const [pendingDoctorsData, verifiedDoctorsData, pendingPayoutsData, blogsData, labsData, paymentData] =
     await Promise.all([
       getPendingDoctors(),
       getVerifiedDoctors(),
       getPendingPayouts(),
       getAllBlogs(),
       getLabs(),
+      getPaymentRequests(),
     ]);
 
   return (
@@ -42,6 +44,15 @@ export default async function AdminPage() {
       <TabsContent value="payouts" className="border-none p-0">
         <TabAnimatedContent>
           <PendingPayouts payouts={pendingPayoutsData.payouts || []} />
+        </TabAnimatedContent>
+      </TabsContent>
+
+      <TabsContent value="payment-requests" className="border-none p-0">
+        <TabAnimatedContent>
+          <PaymentRequests 
+            requests={paymentData.requests || []} 
+            history={paymentData.history || []}
+          />
         </TabAnimatedContent>
       </TabsContent>
 

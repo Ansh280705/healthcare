@@ -2,7 +2,7 @@ import AboutHero from "@/components/about/AboutHero";
 import WhoWeAre from "@/components/about/WhoWeAre";
 import StatsStrip from "@/components/about/StatsStrip";
 import MissionVision from "@/components/about/MissionVision";
-// import FounderSection from "@/components/about/FounderSection";
+import FounderSection from "@/components/about/FounderSection";
 
 export default function AboutPage() {
   return (
@@ -11,7 +11,7 @@ export default function AboutPage() {
       <WhoWeAre />
       <StatsStrip />
       <MissionVision />
-      {/* <FounderSection /> */}
+      <FounderSection />
     
     </main>
   );

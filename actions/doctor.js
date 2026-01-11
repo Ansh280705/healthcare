@@ -32,30 +32,7 @@ export async function setAvailabilitySlots(formData) {
       throw new Error("Start time must be before end time");
     }
 
-    //  Check if the doctor already has slots
-    const existingSlots = await db.availability.findMany({
-      where: {
-        doctorId: doctor.id,
-      },
-    });
-
-    if (existingSlots.length > 0) {
-      // Don't delete slots that already have appointments
-      const slotsWithNoAppointments = existingSlots.filter(
-        (slot) => !slot.appointment
-      );
-
-      if (slotsWithNoAppointments.length > 0) {
-        await db.availability.deleteMany({
-          where: {
-            id: {
-              in: slotsWithNoAppointments.map((slot) => slot.id),
-            },
-          },
-        });
-      }
-    }
-
+    // Simplified: Just create the new slot. Additive behavior.
     const newSlot = await db.availability.create({
       data: {
         doctorId: doctor.id,
@@ -103,6 +80,41 @@ export async function getDoctorAvailability() {
     return { slots: availabilitySlots };
   } catch (error) {
     throw new Error("Failed to fetch availability slots " + error.message);
+  }
+}
+
+export async function deleteAvailability(slotId) {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  try {
+    const doctor = await db.user.findUnique({
+      where: { clerkUserId: userId, role: "DOCTOR" },
+    });
+    if (!doctor) throw new Error("Doctor not found");
+
+    // Check if slot belongs to doctor and has no appointments
+    const slot = await db.availability.findUnique({
+      where: { id: slotId },
+    });
+
+    if (!slot || slot.doctorId !== doctor.id) {
+      throw new Error("Slot not found or not authorized");
+    }
+
+    if (slot.status !== "AVAILABLE") {
+      throw new Error("Cannot delete a booked or blocked slot");
+    }
+
+    await db.availability.delete({
+      where: { id: slotId }
+    });
+
+    revalidatePath("/doctor");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to delete availability:", error);
+    throw new Error("Failed to delete availability: " + error.message);
   }
 }
 
@@ -237,6 +249,7 @@ export async function cancelAppointment(formData) {
       await tx.user.update({
         where: {
           id: appointment.doctorId,
+          credits: { gte: 1 }
         },
         data: {
           credits: {

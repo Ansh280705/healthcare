@@ -189,7 +189,7 @@ export default function Home() {
             </p>
           </div>
 
-          <Pricing />
+          <Pricing showHistory={false} />
 
           <Card className="mt-10 border-[#6ba49f]/40 hover:border-[#6ba49f]/80 transition">
             <CardHeader>

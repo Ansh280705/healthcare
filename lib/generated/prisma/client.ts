@@ -84,3 +84,8 @@ export type Lab = Prisma.LabModel
  * 
  */
 export type Prescription = Prisma.PrescriptionModel
+/**
+ * Model PaymentRequest
+ * 
+ */
+export type PaymentRequest = Prisma.PaymentRequestModel

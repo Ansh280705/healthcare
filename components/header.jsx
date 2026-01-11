@@ -41,7 +41,7 @@ export const Header = ({ user }) => {
   }, []);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b bg-background backdrop-blur">
+    <header className="fixed top-0 z-50 w-full border-b bg-background/40 backdrop-blur">
       {isMobile ? (
         <MobileHeader user={user} />
       ) : (

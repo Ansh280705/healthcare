@@ -165,6 +165,7 @@ export async function deductCreditsForAppointment(userId, doctorId) {
       const updatedUser = await tx.user.update({
         where: {
           id: user.id,
+          credits: { gte: APPOINTMENT_CREDIT_COST }
         },
         data: {
           credits: {

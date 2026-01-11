@@ -11,6 +11,7 @@ import { checkUser } from "@/lib/checkUser";
 import PageLoader from "@/components/PageLoader";
 import { Toaster } from "sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import PaymentToast from "@/components/payment-toast";
 
 const inter = Poppins({
   weight: ["400", "600", "700"],
@@ -61,6 +62,7 @@ export default async function RootLayout({ children }) {
     <main className="min-h-screen">{children}</main>
     <Footer />
     <WhatsAppButton />
+    <PaymentToast />
   </PageLoader>
 
             </CreditsProvider>

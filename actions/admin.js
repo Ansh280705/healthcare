@@ -264,6 +264,7 @@ export async function approvePayout(formData) {
       await tx.user.update({
         where: {
           id: payout.doctorId,
+          credits: { gte: payout.credits }
         },
         data: {
           credits: {
