@@ -59,6 +59,7 @@ export const metadata = {
   "online clinic management india",
   ],
   metadataBase: new URL("https://doctordesk.co.in"),
+  manifest: "/manifest.json",
 
   icons: {
     icon: [
