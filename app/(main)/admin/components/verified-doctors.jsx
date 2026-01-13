@@ -38,8 +38,7 @@ export function VerifiedDoctors({ doctors }) {
 
   const handleStatusChange = async (doctor, suspend) => {
     const confirmed = window.confirm(
-      `Are you sure you want to ${suspend ? "suspend" : "reinstate"} ${
-        doctor.name
+      `Are you sure you want to ${suspend ? "suspend" : "reinstate"} ${doctor.name
       }?`
     );
     if (!confirmed || loading) return;
@@ -117,7 +116,7 @@ export function VerifiedDoctors({ doctors }) {
                             <p className="text-sm text-muted-foreground">
                               {doctor.specialty} {doctor.qualifications && doctor.qualifications.length > 0 && (
                                 <span className="text-emerald-600/80 font-medium">({doctor.qualifications.join(", ")})</span>
-                              )} • {doctor.experience} years experience
+                              )} • {doctor.experience > 0 ? `${doctor.experience} years experience` : "No experience"}
                             </p>
                             <p className="text-sm text-muted-foreground mt-1">
                               {doctor.email}
