@@ -12,23 +12,28 @@ import { Toaster } from "sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PaymentToast from "@/components/payment-toast";
 
+/* =========================
+   FONT SETUP
+   ========================= */
 const inter = Poppins({
   weight: ["400", "600", "700"],
   subsets: ["latin"],
 });
 
 /* =========================
-   SEO / METADATA (ONLY ADD)
+   SEO / METADATA (NEXT.JS)
    ========================= */
 export const metadata = {
   title: {
     default: "DoctorDesk",
     template: "%s | DoctorDesk",
   },
+
   description:
     "DoctorDesk is a smart clinic and patient management platform for modern healthcare professionals, enabling online doctor appointments, digital patient records, scheduling, billing, and seamless clinic workflows in one secure system.",
+
   keywords: [
-   // Brand
+      // Brand
   "DoctorDesk",
   "Doctor Desk",
 
@@ -58,9 +63,12 @@ export const metadata = {
   "doctor appointment app india",
   "online clinic management india",
   ],
+
   metadataBase: new URL("https://doctordesk.co.in"),
+
   manifest: "/manifest.json",
 
+  /* --------- FAVICON --------- */
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -70,6 +78,7 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
 
+  /* --------- OPEN GRAPH --------- */
   openGraph: {
     title: "DoctorDesk",
     description:
@@ -88,6 +97,7 @@ export const metadata = {
     type: "website",
   },
 
+  /* --------- TWITTER --------- */
   twitter: {
     card: "summary_large_image",
     title: "DoctorDesk",
@@ -96,6 +106,7 @@ export const metadata = {
     images: ["https://doctordesk.co.in/logo.png"],
   },
 
+  /* --------- ROBOTS --------- */
   robots: {
     index: true,
     follow: true,
@@ -106,20 +117,23 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-
 };
 
+/* =========================
+   VIEWPORT
+   ========================= */
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#6ba49f' },
-    { media: '(prefers-color-scheme: dark)', color: '#6ba49f' },
+    { media: "(prefers-color-scheme: light)", color: "#6ba49f" },
+    { media: "(prefers-color-scheme: dark)", color: "#6ba49f" },
   ],
 };
 
-/* ========================= */
-
+/* =========================
+   ROOT LAYOUT
+   ========================= */
 export default async function RootLayout({ children }) {
-  const user = await checkUser(); // server-side
+  const user = await checkUser(); // Server-side user check
 
   return (
     <ClerkProvider
@@ -127,18 +141,17 @@ export default async function RootLayout({ children }) {
         theme: "simple",
         layout: {
           showLogo: false,
-          logoImageUrl: null,
           logoText: "Medi-App",
           socialButtonsVariant: "none",
-        },
-        elements: {
-          identityPreview: "hidden",
         },
       }}
     >
       <html lang="en" suppressHydrationWarning>
         <body className={inter.className}>
-          {/* 🔥 Google Analytics */}
+
+          {/* =========================
+             GOOGLE ANALYTICS
+             ========================= */}
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-GXCHKJRJ01"
             strategy="afterInteractive"
@@ -152,6 +165,43 @@ export default async function RootLayout({ children }) {
             `}
           </Script>
 
+          {/* =========================
+             🔥 GOOGLE LOGO FIX (IMPORTANT)
+             This makes logo appear in Google search
+             ========================= */}
+          <Script
+            id="organization-schema"
+            type="application/ld+json"
+            strategy="afterInteractive"
+          >
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "DoctorDesk",
+              url: "https://doctordesk.co.in",
+              logo: "https://doctordesk.co.in/logo.png",
+            })}
+          </Script>
+
+          {/* =========================
+             WEBSITE SCHEMA (OPTIONAL)
+             ========================= */}
+          <Script
+            id="website-schema"
+            type="application/ld+json"
+            strategy="afterInteractive"
+          >
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "DoctorDesk",
+              url: "https://doctordesk.co.in",
+            })}
+          </Script>
+
+          {/* =========================
+             APP PROVIDERS
+             ========================= */}
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
@@ -164,7 +214,9 @@ export default async function RootLayout({ children }) {
 
                 <Toaster richColors position="top-center" />
 
-                <main className="min-h-screen">{children}</main>
+                <main className="min-h-screen">
+                  {children}
+                </main>
 
                 <Footer />
                 <WhatsAppButton />
@@ -172,6 +224,7 @@ export default async function RootLayout({ children }) {
               </PageLoader>
             </CreditsProvider>
           </ThemeProvider>
+
         </body>
       </html>
     </ClerkProvider>
