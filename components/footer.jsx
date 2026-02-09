@@ -125,9 +125,9 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-3">Product</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-client">
+                {/* <Link href="#" className="hover:text-client">
                   Features
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link href="/pricing" className="hover:text-client">
@@ -135,9 +135,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/" className="hover:text-client">
+                {/* <Link href="/" className="hover:text-client">
                   Credits
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </div>
@@ -157,13 +157,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-client">
+                {/* <Link href="#" className="hover:text-client">
                   Docs
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link href="/blog" className="hover:text-client">
-                  Blog
+                  Blogs
                 </Link>
               </li>
             </ul>
