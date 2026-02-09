@@ -135,9 +135,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                {/* <Link href="/" className="hover:text-client">
+                <Link href="/pricing" className="hover:text-client">
                   Credits
-                </Link> */}
+                </Link>
               </li>
             </ul>
           </div>
