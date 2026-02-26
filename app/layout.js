@@ -25,17 +25,17 @@ const inter = Poppins({
    ========================= */
 export const metadata = {
   title: {
-    default: "DoctorDesk",
-    template: "%s | DoctorDesk",
+    default: "MediCloud",
+    template: "%s | MediCloud",
   },
 
   description:
-    "DoctorDesk is a smart clinic and patient management platform for modern healthcare professionals, enabling online doctor appointments, digital patient records, scheduling, billing, and seamless clinic workflows in one secure system.",
+    "MediCloud is a smart clinic and patient management platform for modern healthcare professionals, enabling online doctor appointments, digital patient records, scheduling, billing, and seamless clinic workflows in one secure system.",
 
   keywords: [
       // Brand
-  "DoctorDesk",
-  "Doctor Desk",
+  "MediCloud",
+  "Medi Cloud",
 
   // Core product
   "doctor appointment app",
@@ -64,7 +64,7 @@ export const metadata = {
   "online clinic management india",
   ],
 
-  metadataBase: new URL("https://doctordesk.co.in"),
+  metadataBase: new URL("https://medicloud.co.in"),
 
   manifest: "/manifest.json",
 
@@ -80,17 +80,17 @@ export const metadata = {
 
   /* --------- OPEN GRAPH --------- */
   openGraph: {
-    title: "DoctorDesk",
+    title: "MediCloud",
     description:
       "Smart clinic & patient management platform for modern healthcare professionals.",
-    url: "https://doctordesk.co.in",
-    siteName: "DoctorDesk",
+    url: "https://medicloud.co.in",
+    siteName: "MediCloud",
     images: [
       {
-        url: "https://doctordesk.co.in/logo.png",
+        url: "https://medicloud.co.in/medicloud-logo.png",
         width: 1200,
         height: 630,
-        alt: "DoctorDesk Logo",
+        alt: "MediCloud Logo",
       },
     ],
     locale: "en_IN",
@@ -100,10 +100,10 @@ export const metadata = {
   /* --------- TWITTER --------- */
   twitter: {
     card: "summary_large_image",
-    title: "DoctorDesk",
+    title: "MediCloud",
     description:
       "Secure scheduling and workflow platform for doctors & clinics.",
-    images: ["https://doctordesk.co.in/logo.png"],
+    images: ["https://medicloud.co.in/medicloud-logo.png"],
   },
 
   /* --------- ROBOTS --------- */
@@ -140,8 +140,10 @@ export default async function RootLayout({ children }) {
       appearance={{
         theme: "simple",
         layout: {
-          showLogo: false,
-          logoText: "Medi-App",
+          showLogo: true,
+          logoImageUrl: "/medicloud-logo.png",
+          logoPlacement: "inside",
+          logoText: "MediCloud",
           socialButtonsVariant: "none",
         },
       }}
@@ -177,9 +179,9 @@ export default async function RootLayout({ children }) {
             {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "DoctorDesk",
-              url: "https://doctordesk.co.in",
-              logo: "https://doctordesk.co.in/logo.png",
+              name: "MediCloud",
+              url: "https://medicloud.co.in",
+              logo: "https://medicloud.co.in/medicloud-logo.png",
             })}
           </Script>
 
@@ -194,8 +196,8 @@ export default async function RootLayout({ children }) {
             {JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "DoctorDesk",
-              url: "https://doctordesk.co.in",
+              name: "MediCloud",
+              url: "https://medicloud.co.in",
             })}
           </Script>
 

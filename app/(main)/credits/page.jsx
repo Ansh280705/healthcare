@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import Pricing from "@/components/pricing";
 
 export const metadata = {
-    title: "Credits | DoctorDesk",
-    description: "Understand how DoctorDesk credits work. Simple, transparent, and flexible payment for your medical consultations.",
+    title: "Credits | MediCloud",
+    description: "Understand how MediCloud credits work. Simple, transparent, and flexible payment for your medical consultations.",
 };
 
 export default function CreditsPage() {
@@ -36,7 +36,7 @@ export default function CreditsPage() {
                         </h1>
 
                         <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
-                            DoctorDesk Credits are the simple way to pay for consultations.
+                            MediCloud Credits are the simple way to pay for consultations.
                             No hidden fees, no subscriptions—just top up and book your expert instantly.
                         </p>
                     </div>

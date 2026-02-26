@@ -1,6 +1,6 @@
-# 📘 Backend & DBMS Learning Guide: DoctorDesk Edition
+# 📘 Backend & DBMS Learning Guide: MediCloud Edition
 
-Welcome to your personalized backend learning guide! This document explains the backend concepts, function syntax, and database management specifically using the code from your **DoctorDesk** project.
+Welcome to your personalized backend learning guide! This document explains the backend concepts, function syntax, and database management specifically using the code from your **MediCloud** project.
 
 ---
 

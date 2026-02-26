@@ -2,8 +2,8 @@ import React from "react";
 import { Shield, Lock, Users, Database, FileText, Scale, Mail, Phone } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy - DoctorDesk | Healthcare Data Protection",
-  description: "DoctorDesk privacy policy - Learn how we protect your healthcare data, medical information, and ensure patient confidentiality on our secure platform.",
+  title: "Privacy Policy - MediCloud | Healthcare Data Protection",
+  description: "MediCloud privacy policy - Learn how we protect your healthcare data, medical information, and ensure patient confidentiality on our secure platform.",
 };
 
 const PrivacyPage = () => {
@@ -35,10 +35,10 @@ const PrivacyPage = () => {
         <div className="prose prose-lg max-w-none mb-12">
           <div className="bg-card border border-border rounded-xl p-6 mb-8">
             <p className="text-muted-foreground leading-relaxed mb-4">
-              <span className="font-semibold text-client">DoctorDesk</span> ("we," "our," "us") values your trust and is committed to protecting your <span className="text-client font-medium">personal data</span>. This Privacy Policy explains how DoctorDesk collects, uses, stores, discloses, and protects information when you use our <span className="text-client font-medium">healthcare technology platform</span>, website, mobile application, and related digital services.
+              <span className="font-semibold text-client">MediCloud</span> ("we," "our," "us") values your trust and is committed to protecting your <span className="text-client font-medium">personal data</span>. This Privacy Policy explains how MediCloud collects, uses, stores, discloses, and protects information when you use our <span className="text-client font-medium">healthcare technology platform</span>, website, mobile application, and related digital services.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              By accessing or using DoctorDesk, you agree to the terms of this Privacy Policy.
+              By accessing or using MediCloud, you agree to the terms of this Privacy Policy.
             </p>
           </div>
 
@@ -103,7 +103,7 @@ const PrivacyPage = () => {
             </div>
 
             <p className="text-muted-foreground mb-4">
-              DoctorDesk uses collected information for the following purposes:
+              MediCloud uses collected information for the following purposes:
             </p>
 
             <div className="bg-card border border-border rounded-lg p-6">
@@ -150,7 +150,7 @@ const PrivacyPage = () => {
             </div>
 
             <p className="text-muted-foreground mb-4">
-              DoctorDesk uses <span className="text-client font-medium">cookies</span> to enhance website performance, analyze user behavior, improve security, and personalize content.
+              MediCloud uses <span className="text-client font-medium">cookies</span> to enhance website performance, analyze user behavior, improve security, and personalize content.
             </p>
             <p className="text-sm text-muted-foreground italic">
               You can control cookie preferences through your browser settings.
@@ -167,7 +167,7 @@ const PrivacyPage = () => {
             </div>
 
             <p className="text-muted-foreground mb-4">
-              <span className="font-semibold text-client">DoctorDesk</span> implements industry-standard security measures:
+              <span className="font-semibold text-client">MediCloud</span> implements industry-standard security measures:
             </p>
 
             <div className="grid md:grid-cols-2 gap-4">
@@ -233,8 +233,8 @@ const PrivacyPage = () => {
 
             <p className="text-sm text-muted-foreground mt-4">
               Requests can be made by contacting us at{" "}
-              <a href="mailto:doctordeskofficial@gmail.com" className="text-client font-semibold hover:underline">
-                doctordeskofficial@gmail.com
+              <a href="mailto:medicloudOfficial@gmail.com" className="text-client font-semibold hover:underline">
+                medicloudOfficial@gmail.com
               </a>
             </p>
           </section>
@@ -243,14 +243,14 @@ const PrivacyPage = () => {
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-foreground mb-4">7. Third-Party Links</h2>
             <p className="text-muted-foreground">
-              DoctorDesk may contain links to third-party websites or services. We are not responsible for their privacy practices.
+              MediCloud may contain links to third-party websites or services. We are not responsible for their privacy practices.
             </p>
           </section>
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-foreground mb-4">8. Children's Privacy</h2>
             <p className="text-muted-foreground">
-              DoctorDesk does not knowingly collect personal data from children under 18 without parental consent.
+              MediCloud does not knowingly collect personal data from children under 18 without parental consent.
             </p>
           </section>
 
@@ -264,7 +264,7 @@ const PrivacyPage = () => {
             </div>
 
             <p className="text-muted-foreground mb-4">
-              DoctorDesk strives to comply with applicable data protection laws:
+              MediCloud strives to comply with applicable data protection laws:
             </p>
 
             <div className="grid md:grid-cols-2 gap-3">
@@ -297,15 +297,15 @@ const PrivacyPage = () => {
 
             <div className="bg-gradient-to-br from-card to-muted/20 border border-border rounded-xl p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">
-                Doctor<span className="text-client">Desk</span>
+                Medi<span className="text-client">Cloud</span>
               </h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-client" />
                   <div>
                     <p className="text-xs text-muted-foreground">Email</p>
-                    <a href="mailto:doctordeskofficial@gmail.com" className="text-client font-semibold hover:underline">
-                      doctordeskofficial@gmail.com
+                    <a href="mailto:medicloudOfficial@gmail.com" className="text-client font-semibold hover:underline">
+                      medicloudOfficial@gmail.com
                     </a>
                   </div>
                 </div>

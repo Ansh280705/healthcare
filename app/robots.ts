@@ -34,6 +34,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://www.doctordesk.co.in/sitemap.xml",
+    sitemap: "https://www.medicloud.co.in/sitemap.xml",
   };
 }

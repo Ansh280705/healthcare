@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/page-header";
 import PageLoader from "@/components/PageLoader";
 
 export const metadata = {
-  title: "Doctor Dashboard - DoctorDesk",
+  title: "Doctor Dashboard - MediCloud",
   description: "Manage your appointments and availability",
 };
 

@@ -1,8 +1,8 @@
 import React from "react";
 
 export const metadata = {
-  title: "Cancellation Policy - DoctorDesk",
-  description: "Cancellation policy for services booked on DoctorDesk.",
+  title: "Cancellation Policy - MediCloud",
+  description: "Cancellation policy for services booked on MediCloud.",
 };
 
 const formatDate = (d) => {
@@ -30,7 +30,7 @@ const CancellationPolicyPage = () => {
             </h1>
             <p className="text-sm text-muted-foreground">
               How cancellations and refunds are handled for services booked on
-              DoctorDesk.
+              MediCloud.
             </p>
           </div>
           <div className="text-sm text-muted-foreground text-right">
@@ -55,7 +55,7 @@ const CancellationPolicyPage = () => {
             </li>
             <li>
               <a href="#platform" className="hover:text-client">
-                3. Cancellation by DoctorDesk
+                3. Cancellation by MediCloud
               </a>
             </li>
             <li>
@@ -74,7 +74,7 @@ const CancellationPolicyPage = () => {
         <main className="md:col-span-3 space-y-6">
           <div className="bg-white border rounded-lg p-6 shadow-sm">
             <p className="text-muted-foreground leading-relaxed">
-              <strong>DoctorDesk</strong> believes in helping customers as far
+              <strong>MediCloud</strong> believes in helping customers as far
               as possible. This page explains how cancellations are handled for
               services booked on our platform.
             </p>
@@ -94,7 +94,7 @@ const CancellationPolicyPage = () => {
             <p className="mt-3">Cancellation requests must be made through:</p>
             <ul className="list-disc list-inside mt-2 space-y-1">
               <li>
-                Email: <strong>doctordeskOfficial@gmail.com</strong>
+                Email: <strong>medicloudOfficial@gmail.com</strong>
               </li>
               <li>The platform where the service was booked.</li>
             </ul>
@@ -121,10 +121,10 @@ const CancellationPolicyPage = () => {
             className="bg-white border rounded-lg p-6 shadow-sm"
           >
             <h2 className="text-xl font-semibold mb-2">
-              3. Cancellation by DoctorDesk
+              3. Cancellation by MediCloud
             </h2>
             <p>
-              DoctorDesk reserves the right to cancel any booking due to
+              MediCloud reserves the right to cancel any booking due to
               unavoidable circumstances such as technical issues or
               unavailability.
             </p>
@@ -159,7 +159,7 @@ const CancellationPolicyPage = () => {
             <p>For cancellation-related queries, please contact us at:</p>
             <ul className="list-disc list-inside mt-2">
               <li>
-                Email: <strong>doctordeskOfficial@gmail.com</strong>
+                Email: <strong>medicloudOfficial@gmail.com</strong>
               </li>
               <li>
                 Phone: <strong>+91 81094-24356</strong>
