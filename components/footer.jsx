@@ -71,23 +71,23 @@ export default function Footer() {
         {/* Watermark */}
         <div className="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none translate-y-24">
           <span className="text-[12rem] md:text-[16rem] font-bold tracking-tight text-client/10 select-none whitespace-nowrap">
-            DoctorDesk
+            MediCloud
           </span>
         </div>
 
         <div className="relative z-10 container mx-auto px-6 lg:px-20 grid grid-cols-2 md:grid-cols-6 gap-10 text-sm text-muted-foreground">
           {/* Brand */}
           <div className="col-span-2">
-            <div className="flex items-center ">
+            <div className="flex items-center gap-2">
               <Image
-                src="/final-logo.png"
-                alt="DoctorDesk Logo"
-                width={40}
-                height={40}
-                className="object-contain"
+                src="/medicloud-logo.png"
+                alt="MediCloud Logo"
+                width={38}
+                height={38}
+                className="object-contain flex-shrink-0"
               />
-              <h3 className="text-lg font-semibold text-foreground">
-                Doctor<span className="text-client">Desk</span>
+              <h3 className="text-lg font-semibold text-foreground whitespace-nowrap">
+                Medi<span className="text-client">Cloud</span>
               </h3>
             </div>
             <p className="mt-3 max-w-sm">
@@ -96,31 +96,8 @@ export default function Footer() {
             </p>
             <div className="mt-6 space-y-3 text-xs">
               <div className="flex items-center gap-2">
-                <Building2 className="h-4 w-4 text-client shrink-0" />
-                <p className="font-semibold text-foreground">Yashoda Dental Care</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4 text-client shrink-0" />
-                <p>Dr. Ankit Chourasiya</p>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-client shrink-0" />
-                <p>+91 81094-24356</p>
-                {/* <p>+91 7987109645</p> */}
-              </div>
-              <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-client shrink-0" />
-                <p>doctordeskofficial@gmail.com</p>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-client shrink-0 mt-0.5" />
-                <p>
-                  First Floor, Plot No. 17, Above New Globas Medical, Opposite
-                  Satish Kirana, Gori Nagar, New Gouri Nagar, Sukhliya, Indore,
-                  Madhya Pradesh – 452010
-                  {/* 513, Vynaktesh Vihar Chota Bangarda Road <br /> Indore, Madhya
-                  Pradesh – 452005 <br /> India */}
-                </p>
+                <p>medicloudOfficial@gmail.com</p>
               </div>
             </div>
           </div>
@@ -225,16 +202,8 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-3">Connect</h4>
             <div className="flex items-center gap-4">
-              <button onClick={() => setModal("sms")} className="btn">
-                <MessageCircle className="w-6 h-6" />
-              </button>
-
               <button onClick={() => setModal("email")} className="btn">
-                <Mail className="w-6 h-6" />
-              </button>
-
-              <button onClick={() => setModal("insta")} className="btn">
-                <Instagram className="w-6 h-6" />
+                <Mail className="h-4 w-4" />
               </button>
             </div>
           </div>
@@ -265,20 +234,13 @@ export default function Footer() {
           </div>
         </div>
         <div className="container mx-auto px-6 lg:px-20 py-4 text-xs text-muted-foreground text-center border-t border-border/60 flex flex-col items-center gap-2">
-          <span>© {new Date().getFullYear()} DoctorDesk</span>
-          <p>
-            <strong>Company Name:</strong> DoctorDesk | <strong>Clinic:</strong> Yashoda Dental Care | <strong>Owner:</strong>{" "}
-            Dr. Ankit Chourasiya | <strong>Business Type:</strong> Individual /
-            Proprietorship | <strong>Service Type:</strong> SaaS / IT Services
-          </p>
-          <p>
-            <strong>Support:</strong> doctordeskOfficial@gmail.com
-          </p>
+
+
           <p className="mt-2">
             <strong>Refund Policy:</strong> If we approve your refund, we will process and credit it to your bank account within 3-5 days.
           </p>
           {/* <p className="mt-2">
-            DoctorDesk is a technology platform and does not provide medical
+            MediCloud is a technology platform and does not provide medical
             consultation, diagnosis, treatment, or prescriptions. All services
             are provided independently by professionals using the platform.
           </p> */}
@@ -294,25 +256,7 @@ export default function Footer() {
               <X className="w-5 h-5" />
             </button>
 
-            {/* SMS */}
-            {modal === "sms" && (
-              <>
-                <h4 className="text-lg font-semibold mb-2">Send SMS</h4>
-                <p className="text-muted-foreground mb-4 flex items-center gap-2">
-                  Send a quick message at
-                  <span className="flex items-center gap-1 font-medium text-foreground">
-                    <Phone className="w-4 h-4" />
-                    +91 81094 24356
-                  </span>
-                </p>
-                <Link
-                  href="sms:8109424356"
-                  className="block text-center rounded-xl bg-client py-3 text-white font-medium hover:bg-client/80 "
-                >
-                  Send SMS
-                </Link>
-              </>
-            )}
+
 
             {/* EMAIL */}
             {modal === "email" && (
@@ -322,11 +266,11 @@ export default function Footer() {
                   Send Email At
                   <span className="flex items-center gap-1 font-medium text-foreground ">
                     <MailIcon className="w-4 h-4" />
-                    doctordeskofficial@gmail.com
+                    medicloudOfficial@gmail.com
                   </span>
                 </p>
                 <Link
-                  href="mailto:doctordesk@gmail.com"
+                  href="mailto:medicloud@gmail.com"
                   className="block text-center rounded-xl bg-client py-3 text-white font-medium hover:bg-client/80 transition-all duration-700"
                 >
                   Send Email
@@ -334,23 +278,7 @@ export default function Footer() {
               </>
             )}
 
-            {/* INSTAGRAM */}
-            {modal === "insta" && (
-              <>
-                <h4 className="text-lg font-semibold mb-2">Instagram</h4>
-                <p className="text-muted-foreground mb-4 flex flex-col items-center gap-2">
-                  Follow On Instagram <Link2 className="w-4 h-4" />
-                  <span className="flex items-center gap-1 font-medium text-foreground  transition-all duration-700"></span>
-                </p>
-                <Link
-                  href="https://www.instagram.com/dr.ankit_chourasiya_/"
-                  target="_blank"
-                  className="block text-center rounded-xl bg-client py-3 text-white font-medium hover:bg-client/80 transition-all duration-700"
-                >
-                  Open Instagram
-                </Link>
-              </>
-            )}
+
           </div>
         </div>
       )}
@@ -375,24 +303,15 @@ function SocialModal({ isOpen, onClose }) {
 
         <div className="space-y-4">
           <a
-            href="https://instagram.com/yourpage"
-            target="_blank"
-            className="flex items-center gap-3 p-3 rounded-lg border hover:bg-gray-50"
-          >
-            <Instagram /> Instagram
-          </a>
-
-          <a
-            href="mailto:doctordeskofficial@gmail.com"
-            className="flex items-center gap-3 p-3 rounded-lg border hover:bg-gray-50"
+            href="mailto:medicloudOfficial@gmail.com"
+            className="flex items-center gap-3 p-3 rounded-lg border hover:bg-gray-50 text-client"
           >
             <Mail /> Email Us
           </a>
-
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/917415408992"
             target="_blank"
-            className="flex items-center gap-3 p-3 rounded-lg border hover:bg-gray-50"
+            className="flex items-center gap-3 p-3 rounded-lg border hover:bg-gray-50 text-client"
           >
             <MessageCircle /> WhatsApp
           </a>

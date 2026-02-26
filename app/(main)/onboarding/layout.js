@@ -2,8 +2,8 @@ import { getCurrentUser } from "@/actions/onboarding";
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Onboarding - DoctorDesk",
-  description: "Complete your profile to get started with DoctorDesk",
+  title: "Onboarding - MediCloud",
+  description: "Complete your profile to get started with MediCloud",
 };
 
 export default async function OnboardingLayout({ children }) {
@@ -31,7 +31,7 @@ export default async function OnboardingLayout({ children }) {
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-bold text-client mb-2">
-            Welcome to DoctorDesk
+            Welcome to MediCloud
           </h1>
           <p className="text-muted-foreground text-lg">
             Tell us how you want to use the platform

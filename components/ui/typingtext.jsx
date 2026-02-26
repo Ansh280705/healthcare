@@ -44,7 +44,7 @@ export default function TypingText() {
 
   return (
     <span className="inline-block items-center text-xl md:text-2xl lg:text-4xl font-bold">
-      <span className="bg-gradient-to-r from-[#6ba49f]  to-[#45827e] bg-clip-text text-transparent">
+      <span className="bg-gradient-to-r from-[#6ba49f] to-[#45827e] bg-clip-text text-transparent">
         {text}
       </span>
       {/* <span className="ml-1 w-[2px] h-[.8em] bg-[#fcfcfc] cursor-pulse"></span> */}

@@ -1,13 +1,13 @@
-# 🏥 DoctorDesk Project Offboarding Document
+# 🏥 MediCloud Project Offboarding Document
 
-Congratulations on the successful completion of the **DoctorDesk** project! This document outlines everything you need for a smooth handover and long-term maintenance of the platform.
+Congratulations on the successful completion of the **MediCloud** project! This document outlines everything you need for a smooth handover and long-term maintenance of the platform.
 
 ---
 
 ## 📂 1. Final Deliverables
 
 ### 🌐 Website Live Link
-- **Production URL:** [https://www.doctordesk.co.in](https://www.doctordesk.co.in)
+- **Production URL:** [https://www.medicloud.co.in](https://www.medicloud.co.in)
 - **Status:** Fully deployed and production-ready.
 
 ### 🔑 Admin Credentials
@@ -81,4 +81,4 @@ By accepting this delivery, the project code and all associated assets are offic
 **Handover Date:** February 12, 2026
 
 ---
-*Thank you for choosing DoctorDesk. We wish you great success in revolutionizing healthcare!* 🚀
+*Thank you for choosing MediCloud. We wish you great success in revolutionizing healthcare!* 🚀

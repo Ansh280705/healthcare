@@ -40,7 +40,7 @@ export async function POST(req) {
     });
 
     await transporter.sendMail({
-      from: `"DoctorDesk Contact" <${process.env.GMAIL_USER}>`,
+      from: `"MediCloud Support" <${process.env.GMAIL_USER}>`,
       to: process.env.GMAIL_USER, // admin
       replyTo: email,
       subject: "📩 New Contact Message",

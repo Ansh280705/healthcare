@@ -6,7 +6,7 @@ import DynamicBackLink from "@/components/DynamicBackLink";
 import { AdminTabsSection } from "./components/admin-tabs-section";
 
 export const metadata = {
-  title: "Admin Settings - DoctorDesk",
+  title: "Admin Settings - MediCloud",
   description: "Manage doctors, patients, blogs, and platform settings",
 };
 

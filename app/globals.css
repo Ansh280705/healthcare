@@ -51,13 +51,13 @@
   --radius: 0.625rem;
  
   --background: #f9f2f2;
-  --foreground: oklch(0.145 0 0);
-  --client:oklch(67.79% 0.06025 188.928);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --foreground: #1a1a1a;
+  --client: #6ba49f;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: #1a1a1a;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -431,12 +431,12 @@ html {
   }
 }
 .swiper .swiper-pagination-bullet {
-  background-color: #6ba49f !important; /* inactive dot color */
+  background-color: #06908F !important; /* inactive dot color */
   
  
 }
 
 .swiper .swiper-pagination-bullet-active {
-  background-color: #2f5f50 !important; /* active dot color */
+  background-color: #F1ABB9 !important; /* active dot color */
 }
 

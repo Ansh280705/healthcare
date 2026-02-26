@@ -63,11 +63,11 @@ const MobileHeader = ({ user }) => {
       </div>
 
       {/* CENTER - Logo */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-1">
-        <Link href="/" className="flex items-center gap-1">
-          <Image src="/final-logo.png" width={40} height={40} alt="logo" />
-          <span className="font-bold text-lg">
-            Doctor<span className="text-client">Desk</span>
+      <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-1.5">
+          <Image src="/medicloud-logo.png" width={40} height={40} alt="logo" className="object-contain flex-shrink-0" />
+          <span className="font-bold text-lg whitespace-nowrap">
+            Medi<span className="text-client">Cloud</span>
           </span>
         </Link>
       </div>
@@ -109,16 +109,17 @@ const MobileHeader = ({ user }) => {
 const DesktopHeader = ({ user, credits }) => (
   <div className="flex items-center justify-between px-8 h-16">
     {/* LEFT - LOGO */}
-    <Link href="/" className="flex items-center gap-1 ">
+    <Link href="/" className="flex items-center gap-2 flex-shrink-0">
       <Image
-        src="/final-logo.png"
-        alt="DoctorDesk logo"
-        width={60}
-        height={60}
+        src="/medicloud-logo.png"
+        alt="MediCloud logo"
+        width={50}
+        height={50}
         priority
+        className="object-contain"
       />
-      <span className="text-xl font-bold tracking-tight ">
-        Doctor<span className="text-client">Desk</span>
+      <span className="text-xl font-bold tracking-tight whitespace-nowrap">
+        Medi<span className="text-client">Cloud</span>
       </span>
     </Link>
 
